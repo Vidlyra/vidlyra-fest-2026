@@ -24,17 +24,21 @@ setInterval(() => {
 const audio = document.getElementById("audio");
 const playBtn = document.getElementById("playBtn");
 
+const cover = document.querySelector(".cover-art");
+
 playBtn.addEventListener("click", function () {
 
     if (audio.paused) {
 
         audio.play();
         playBtn.innerHTML = "⏸";
+        cover.classList.add("playing");
 
     } else {
 
         audio.pause();
         playBtn.innerHTML = "▶";
+        cover.classList.remove("playing");
 
     }
 
