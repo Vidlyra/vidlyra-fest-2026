@@ -385,10 +385,34 @@
     </video>
 
 </section>
-    <audio controls>
-    <source src="audio/Podcost.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+    <div class="music-player">
+
+    <img src="images/podcastcover.jpg.png" class="cover-art">
+
+    <h3>Hollow Frequency: Code Zero</h3>
+
+    <p>Episode 01 • Vidlyra Podcast</p>
+
+    <audio id="audio">
+
+        <source src="audio/Podcost.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <input
+        type="range"
+        id="progress"
+        value="0"
+        min="0"
+        max="100">
+
+    <div class="controls">
+
+        <button id="playBtn">▶</button>
+
+    </div>
+
+</div>
 <script src="script.js"></script>
 </body>
 </html>
