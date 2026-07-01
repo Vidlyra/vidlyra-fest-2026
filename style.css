@@ -784,3 +784,38 @@ SPOTIFY PLAYER
     accent-color:orange;
     cursor:pointer;
 }
+/*==========================
+PLAYER ANIMATION
+===========================*/
+
+.cover-art{
+    transition:0.5s;
+}
+
+.cover-art.playing{
+    animation:spin 12s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.controls button{
+
+    box-shadow:0 0 15px rgba(255,165,0,.5);
+
+}
+
+.controls button:hover{
+
+    box-shadow:0 0 30px orange;
+
+}
