@@ -293,3 +293,65 @@ nav a:hover{
     font-size:16px;
     line-height:1.6;
 }
+/* COUNTDOWN */
+
+.countdown{
+
+    background:#111;
+
+    color:white;
+
+    text-align:center;
+
+    padding:100px 10%;
+}
+
+.countdown h2{
+
+    color:orange;
+
+    font-size:45px;
+
+    margin-bottom:50px;
+}
+
+.timer{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+}
+
+.time-box{
+
+    background:#1f1f1f;
+
+    padding:30px;
+
+    width:160px;
+
+    border-radius:15px;
+
+    transition:.3s;
+}
+
+.time-box:hover{
+
+    background:orange;
+
+    color:black;
+}
+
+.time-box h3{
+
+    font-size:50px;
+}
+
+.time-box span{
+
+    font-size:20px;
+}
