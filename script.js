@@ -213,3 +213,31 @@ window.addEventListener("load", () => {
     },800);
 
 });
+const popup = document.getElementById("ticketPopup");
+const closePopup = document.getElementById("closePopup");
+
+document.querySelectorAll(".popupOpen").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        popup.style.display = "flex";
+
+    });
+
+});
+
+closePopup.addEventListener("click", () => {
+
+    popup.style.display = "none";
+
+});
+
+window.addEventListener("click", (e) => {
+
+    if(e.target === popup){
+
+        popup.style.display = "none";
+
+    }
+
+});
