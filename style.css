@@ -1027,10 +1027,20 @@ FAQ
 }
 
 .faq-answer{
+
     max-height:0;
     overflow:hidden;
-    transition:0.4s;
     padding:0 20px;
+    color:#ddd;
+    transition:max-height 0.4s ease, padding 0.4s ease;
+
+}
+
+.faq-answer.active{
+
+    max-height:300px;
+    padding:20px;
+
 }
 
 .faq-answer.active{
