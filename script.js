@@ -123,3 +123,30 @@ faqButtons.forEach(button => {
     });
 
 });
+// Scroll Reveal
+
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", revealSections);
+
+revealSections();
+
+function revealSections(){
+
+    reveals.forEach(section => {
+
+        const windowHeight = window.innerHeight;
+
+        const top = section.getBoundingClientRect().top;
+
+        const revealPoint = 120;
+
+        if(top < windowHeight - revealPoint){
+
+            section.classList.add("active");
+
+        }
+
+    });
+
+}
