@@ -1615,12 +1615,6 @@ TICKET POPUP
 
     position:relative;
 
-    max-width:450px;
-
-    width:90%;
-
-    margin:auto;
-
 }
 
 .popup-btn{
@@ -1644,13 +1638,33 @@ TICKET POPUP
 #closePopup{
 
     position:absolute;
-
     top:15px;
-
     right:20px;
 
-    font-size:30px;
+    width:40px;
+    height:40px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#ffffff;
+    font-size:32px;
+    font-weight:bold;
 
     cursor:pointer;
+
+    z-index:100000;
+
+    background:transparent;
+
+    user-select:none;
+
+}
+
+#closePopup:hover{
+
+    color:orange;
+    transform:scale(1.2);
 
 }
