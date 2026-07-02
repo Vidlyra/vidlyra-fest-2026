@@ -1340,3 +1340,55 @@ BACK TO TOP BUTTON
     background:white;
 
 }
+/*==========================
+THEME TOGGLE
+===========================*/
+
+#themeToggle{
+
+    width:50px;
+    height:50px;
+
+    border:none;
+    border-radius:50%;
+
+    background:orange;
+    color:black;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#themeToggle:hover{
+
+    transform:rotate(180deg);
+
+}
+
+body.light{
+
+    background:white;
+    color:black;
+
+}
+
+body.light section{
+
+    background:#f4f4f4;
+
+}
+
+body.light .card,
+body.light .event-card,
+body.light .guest-card,
+body.light .ticket-card,
+body.light .contact-card{
+
+    background:white;
+    color:black;
+
+}
