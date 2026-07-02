@@ -1027,13 +1027,13 @@ FAQ
 }
 
 .faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:0.4s;
+    padding:0 20px;
+}
 
-    display:none;
-
+.faq-answer.active{
+    max-height:200px;
     padding:20px;
-
-    border-top:1px solid #333;
-
-    color:#ddd;
-
 }
