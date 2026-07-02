@@ -1777,3 +1777,8 @@ STATISTICS
     color:#ddd;
 
 }
+html{
+
+    scroll-behavior:smooth;
+
+}
