@@ -216,6 +216,10 @@ window.addEventListener("load", () => {
 const popup = document.getElementById("ticketPopup");
 const closePopup = document.getElementById("closePopup");
 
+console.log(popup);
+console.log(closePopup);
+console.log(document.querySelectorAll(".popupOpen"));
+
 document.querySelectorAll(".popupOpen").forEach(button => {
 
     button.addEventListener("click", () => {
