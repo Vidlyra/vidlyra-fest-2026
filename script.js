@@ -102,13 +102,23 @@ document.getElementById("nextBtn").addEventListener("click", () => {
     audio.currentTime += 10;
 
 });
-document.querySelectorAll(".faq-question").forEach(button => {
+const faqButtons = document.querySelectorAll(".faq-question");
 
-    button.addEventListener("click", () => {
+faqButtons.forEach(button => {
 
-        const answer = button.nextElementSibling;
+    button.addEventListener("click", function(){
 
-        answer.classList.toggle("active");
+        const answer = this.nextElementSibling;
+
+        if(answer.classList.contains("active")){
+
+            answer.classList.remove("active");
+
+        }else{
+
+            answer.classList.add("active");
+
+        }
 
     });
 
