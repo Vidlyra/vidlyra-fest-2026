@@ -1301,3 +1301,42 @@ SCROLL ANIMATION
     transform:translateY(0);
 
 }
+/*==========================
+BACK TO TOP BUTTON
+===========================*/
+
+#topBtn{
+
+    display:none;
+    position:fixed;
+    bottom:30px;
+    right:30px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:orange;
+    color:black;
+
+    font-size:24px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 0 15px rgba(255,165,0,.5);
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+#topBtn:hover{
+
+    transform:scale(1.1);
+    background:white;
+
+}
