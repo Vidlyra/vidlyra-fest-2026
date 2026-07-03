@@ -1977,9 +1977,8 @@ TICKETS
 body{
     margin:0;
     background:#050816;
-    overflow:hidden;
+    overflow-x:hidden;
 }
-
 /* Main Container */
 
 .hero-scene{
@@ -1998,18 +1997,15 @@ body{
 
 /* Character */
 
-.hero-team{
-
+.hero-image{
     width:520px;
     position:relative;
     z-index:10;
-
     animation:floating 5s ease-in-out infinite;
 
     filter:
     drop-shadow(0 0 20px rgba(0,255,255,.25))
     drop-shadow(0 0 40px rgba(255,100,0,.15));
-
 }
 
 @keyframes floating{
