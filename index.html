@@ -564,30 +564,30 @@
 
     <p>Book your ticket now!</p>
 
-    <form action=https://formspree.io/f/xzdlknkb method="POST">
+    <form id="ticketForm" action="https://formspree.io/f/xzdlknkb" method="POST">
 
-        <input type="text" name="name" placeholder="Full Name" required>
+    <input type="text" name="name" placeholder="Full Name" required>
 
-        <input type="email" name="email" placeholder="Email Address" required>
+    <input type="email" name="email" placeholder="Email Address" required>
 
-        <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
 
-        <select name="ticket" required>
-            <option value="">Select Ticket</option>
-            <option value="Basic">🎫 Basic Pass</option>
-            <option value="Premium">⭐ Premium Pass</option>
-            <option value="VIP">👑 VIP Pass</option>
-        </select>
+    <select name="ticket" required>
+        <option value="">Select Ticket</option>
+        <option value="Basic">🎫 Basic Pass</option>
+        <option value="Premium">⭐ Premium Pass</option>
+        <option value="VIP">👑 VIP Pass</option>
+    </select>
 
-        <input type="number" name="quantity" min="1" max="10" value="1" required>
+    <input type="number" name="quantity" value="1" min="1" max="10">
 
-        <textarea name="message" placeholder="Special Requests (Optional)"></textarea>
+    <textarea name="message" placeholder="Special Requests"></textarea>
 
-        <button type="submit" class="popup-btn">
-            Book Ticket
-        </button>
+    <button type="submit" class="popup-btn">
+        🎟️ Book Ticket
+    </button>
 
-    </form>
+</form>
    </div>
 </div>
 <script src="script.js"></script>
