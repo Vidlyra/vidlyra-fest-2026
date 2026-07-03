@@ -411,12 +411,15 @@ nav a:hover{
     height:auto;
     object-fit:contain;
 }
-.sponsor-card h3{
-    color:orange;
-    margin-top:20px;
-    margin-bottom:10px;
-}
+.sponsors h2{
 
+    color:white;
+
+    font-size:42px;
+
+    margin-bottom:50px;
+
+}
 /* ===========================
    FESTIVAL SCHEDULE
 =========================== */
@@ -1848,5 +1851,64 @@ textarea:focus{
     transform:translateY(-8px);
 
     box-shadow:0 10px 25px rgba(255,165,0,.3);
+
+}
+.popup-content form{
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
+
+}
+
+.popup-content input,
+.popup-content select,
+.popup-content textarea{
+
+    width:100%;
+    padding:12px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#2a2a2a;
+    color:white;
+
+    font-size:16px;
+
+}
+
+.popup-content textarea{
+
+    resize:vertical;
+    min-height:100px;
+
+}
+
+.popup-content input:focus,
+.popup-content select:focus,
+.popup-content textarea:focus{
+
+    outline:2px solid orange;
+
+}
+
+.popup-btn{
+
+    background:orange;
+    color:black;
+    border:none;
+    padding:15px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+.popup-btn:hover{
+
+    transform:scale(1.05);
 
 }
