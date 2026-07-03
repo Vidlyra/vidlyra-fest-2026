@@ -324,20 +324,31 @@ if (ticketForm) {
     });
 
 }
-/* Hero Mouse Parallax */
+/* ===== Hero Mouse Parallax ===== */
 
 const hero = document.querySelector(".hero-image");
 
 if (hero) {
 
+    let mouseX = 0;
+    let mouseY = 0;
+
     document.addEventListener("mousemove", (e) => {
 
-        const x = (e.clientX - window.innerWidth / 2) / 45;
-        const y = (e.clientY - window.innerHeight / 2) / 55;
-
-        hero.style.transform =
-            `translate(${x}px, ${y}px)`;
+        mouseX = (e.clientX - window.innerWidth / 2) / 60;
+        mouseY = (e.clientY - window.innerHeight / 2) / 60;
 
     });
+
+    function animateHero() {
+
+        hero.style.transform =
+            `translate(${mouseX}px, ${mouseY}px)`;
+
+        requestAnimationFrame(animateHero);
+
+    }
+
+    animateHero();
 
 }
