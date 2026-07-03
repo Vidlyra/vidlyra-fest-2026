@@ -257,7 +257,7 @@
     <div class="sponsor-grid">
 
         <div class="sponsor-card">
-            <img src="images/sponsor1.png" alt="Official Sponsor" loading="lazy">
+            <img src="images/sponsor1.png.jpg" alt="Sponsor 1" loading="lazy">
         </div>
 
     </div>
@@ -463,21 +463,30 @@
 </section>
 <section class="contact-form reveal">
 
-    <h2>Send Us a Message</h2>
+    <h2>Register for Contest </h2>
 
-    <form>
+    <form action=https://formspree.io/f/xzdlknkb method="POST">
 
-        <input type="text" placeholder="Your Name" required>
+    <input type="text" name="name" placeholder="Full Name" required>
 
-        <input type="email" placeholder="Your Email" required>
+    <input type="email" name="email" placeholder="Email Address" required>
 
-        <input type="tel" placeholder="Phone Number">
+    <input type="tel" name="phone" placeholder="Phone Number" required>
 
-        <textarea rows="6" placeholder="Your Message"></textarea>
+    <select name="ticket" required>
+        <option value="">Select Ticket</option>
+        <option>Basic</option>
+        <option>Premium</option>
+        <option>VIP</option>
+    </select>
 
-        <button type="submit">Send Message</button>
+    <input type="number" name="quantity" min="1" max="10" value="1" required>
 
-    </form>
+    <textarea name="message" placeholder="Additional Notes"></textarea>
+
+    <button type="submit">Book Ticket</button>
+
+</form>
 
 </section>
 <section class="contact reveal">
@@ -547,24 +556,39 @@
 <button id="topBtn" title="Go to Top">⬆</button>
     <div id="ticketPopup" class="popup">
 
-    <div class="popup-content">
+   <div class="popup-content">
 
-        <span id="closePopup">&times;</span>
+    <span id="closePopup">&times;</span>
 
-        <h2>🎟️ VIDLYRA FEST 2026</h2>
+    <h2>🎟️ Vidlyra Fest 2026</h2>
 
-        <h3>Tickets Coming Soon!</h3>
+    <p>Book your ticket now!</p>
 
-        <p>
-            Ticket booking is not open yet.
-            Follow our official channels for the announcement.
-        </p>
+    <form action=https://formspree.io/f/xzdlknkb method="POST">
 
-        <a href="https://www.instagram.com/vidlyra_official/" target="_blank" class="popup-btn">
-            Notify Me
-        </a>
- </div>
+        <input type="text" name="name" placeholder="Full Name" required>
 
+        <input type="email" name="email" placeholder="Email Address" required>
+
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+
+        <select name="ticket" required>
+            <option value="">Select Ticket</option>
+            <option value="Basic">🎫 Basic Pass</option>
+            <option value="Premium">⭐ Premium Pass</option>
+            <option value="VIP">👑 VIP Pass</option>
+        </select>
+
+        <input type="number" name="quantity" min="1" max="10" value="1" required>
+
+        <textarea name="message" placeholder="Special Requests (Optional)"></textarea>
+
+        <button type="submit" class="popup-btn">
+            Book Ticket
+        </button>
+
+    </form>
+   </div>
 </div>
 <script src="script.js"></script>
 </body>
