@@ -1,65 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Booking Received | Vidlyra Fest 2026</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Booking Confirmed | Vidlyra Fest 2026</title>
 
 <link rel="icon" type="image/jpeg" href="images/images.jpg">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+
+    margin:0;
+    padding:0;
+
+    background:#0b0b0b;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    font-family:Arial,sans-serif;
+
+}
+
+.success-card{
+
+    width:90%;
+    max-width:650px;
+
+    background:#181818;
+
+    border:2px solid orange;
+
+    border-radius:20px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 0 30px rgba(255,165,0,.35);
+
+}
+
+.check{
+
+    width:110px;
+    height:110px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:orange;
+
+    color:black;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:60px;
+    font-weight:bold;
+
+    animation:pop .8s ease;
+
+}
+
+@keyframes pop{
+
+0%{
+
+transform:scale(0);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+h1{
+
+    color:orange;
+
+    margin-top:25px;
+
+}
+
+p{
+
+    color:white;
+
+    line-height:1.8;
+
+}
+
+.booking-id{
+
+    margin:25px auto;
+
+    background:#222;
+
+    color:orange;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+.status{
+
+    display:inline-block;
+
+    background:orange;
+
+    color:black;
+
+    padding:12px 30px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    margin-top:20px;
+
+}
+
+.countdown{
+
+    margin-top:30px;
+
+    color:#bbb;
+
+    font-size:18px;
+
+}
+
+.home-btn{
+
+    display:inline-block;
+
+    margin-top:35px;
+
+    background:orange;
+
+    color:black;
+
+    text-decoration:none;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.home-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="thankyou-container">
+<div class="success-card">
 
-    <div class="thankyou-card">
+<div class="check">✓</div>
 
-        <h1>🎉 Booking Request Received!</h1>
+<h1>Booking Request Received!</h1>
 
-        <p>
+<p>
 
-            Thank you for booking your ticket for
+Thank you for choosing <strong>Vidlyra Fest 2026</strong>.
 
-            <strong>Vidlyra Fest 2026</strong>.
+</p>
 
-        </p>
+<p>
 
-        <p>
+Your booking request has been received successfully.
 
-            Your request has been successfully received.
+Our team will verify your request and contact you through your registered email.
 
-        </p>
+</p>
 
-        <p>
+<div class="booking-id">
 
-            📧 Our team will review your booking and
-
-            contact you through your email soon.
-
-        </p>
-
-        <h3>Status</h3>
-
-        <span class="status">🟡 Pending Review</span>
-
-        <br><br>
-
-        <a href="index.html" class="home-btn">
-
-            ← Back to Home
-
-        </a>
-
-    </div>
+Booking Ref :
+<span id="bookingNumber"></span>
 
 </div>
 
-</body>
+<div class="status">
 
+🟡 Pending Review
+
+</div>
+
+<div class="countdown">
+
+Returning to Home in
+<span id="timer">10</span>
+seconds...
+
+</div>
+
+<a href="index.html" class="home-btn">
+
+🏠 Back to Home
+
+</a>
+
+</div>
+
+<script>
+
+const random=Math.floor(100000+Math.random()*900000);
+
+document.getElementById("bookingNumber").innerHTML="VF2026-"+random;
+
+let time=10;
+
+setInterval(()=>{
+
+time--;
+
+document.getElementById("timer").innerHTML=time;
+
+if(time<=0){
+
+window.location.href="index.html";
+
+}
+
+},1000);
+
+</script>
+
+</body>
 </html>
