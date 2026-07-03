@@ -1782,3 +1782,71 @@ html{
     scroll-behavior:smooth;
 
 }
+/*==========================
+BUTTON IMPROVEMENTS
+===========================*/
+
+button,
+.ticket-btn,
+.popup-btn{
+
+    transition:0.3s ease;
+
+}
+
+button:hover,
+.ticket-btn:hover,
+.popup-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(255,165,0,.4);
+
+}
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+::selection{
+
+    background:orange;
+
+    color:black;
+
+}
+button:focus,
+a:focus,
+input:focus,
+textarea:focus{
+
+    outline:2px solid orange;
+
+    outline-offset:3px;
+
+}
+.guest-card,
+.event-card,
+.ticket-card,
+.stat-card,
+.sponsor-card{
+
+    transition:0.3s ease;
+
+}
+
+.guest-card:hover,
+.event-card:hover,
+.ticket-card:hover,
+.stat-card:hover,
+.sponsor-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 10px 25px rgba(255,165,0,.3);
+
+}
