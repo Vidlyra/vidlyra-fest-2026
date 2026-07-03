@@ -324,3 +324,20 @@ if (ticketForm) {
     });
 
 }
+/* Hero Mouse Parallax */
+
+const hero = document.querySelector(".hero-image");
+
+if (hero) {
+
+    document.addEventListener("mousemove", (e) => {
+
+        const x = (e.clientX - window.innerWidth / 2) / 45;
+        const y = (e.clientY - window.innerHeight / 2) / 55;
+
+        hero.style.transform =
+            `translate(${x}px, ${y}px)`;
+
+    });
+
+}
