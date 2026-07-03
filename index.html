@@ -217,31 +217,32 @@
     </div>
 
 </section>
-  <section class="guests reveal">
+  <section class="guests">
+
     <h2>Featured Guests</h2>
 
     <div class="guest-grid">
 
         <div class="guest-card">
-            <img src="images/images.jpg" alt="Logo"loading="lazy">
+            <img src="images/guest21.png" alt="Alwin Dison R" loading="lazy">
             <h3>Alwin dison R</h3>
             <p>Vidlyra Founder</p>
         </div>
 
         <div class="guest-card">
-            <img src="images/images.jpg" alt="Logo"loading="lazy">
+            <img src="images/guest22.png" alt="Lyra" loading="lazy">
             <h3>Lyra</h3>
-            <p>secretary of Vidlyra</p>
+            <p>Secretary of Vidlyra</p>
         </div>
 
         <div class="guest-card">
-            <img src="images/images.jpg" alt="Logo"loading="lazy">
+            <img src="images/guest23.png" alt="Luna" loading="lazy">
             <h3>Luna</h3>
-            <p>Head of department of Vidlyra</p>
+            <p>Head of Department of Vidlyra</p>
         </div>
 
         <div class="guest-card">
-            <img src="images/images.jpg" alt="Logo"loading="lazy">
+            <img src="images/guest24.png" alt="Rex" loading="lazy">
             <h3>Rex</h3>
             <p>Vidlyra Podcast Head</p>
         </div>
@@ -249,16 +250,14 @@
     </div>
 
 </section>
-<section class="sponsors reveal">
-    <h2>Our Sponsor</h2>
+<section class="sponsors">
+
+    <h2>Official Sponsor</h2>
 
     <div class="sponsor-grid">
 
         <div class="sponsor-card">
-            <img src="images/sponsor1.png.jpg" alt="Sponsor Logo"loading="lazy">
-            <h3>Vidlyra Studios </h3>
-
-            <p>Official Sponsor</p>
+            <img src="images/sponsor1.png" alt="Official Sponsor" loading="lazy">
         </div>
 
     </div>
@@ -374,117 +373,74 @@
     </div>
 
 </section>
-   <section class="gallery reveal">
+  <section class="gallery reveal">
 
     <h2>Festival Gallery</h2>
 
     <div class="gallery-grid">
 
-        <div class="gallery-item">
-            <img src="images/gallery1.jpg.png" alt="Gallery Image 1"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery2.jpg.png" alt="Gallery Image 2"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery3.jpg.png" alt="Gallery Image 3"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery4.jpg.png" alt="Gallery Image 4"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery5.jpg.png" alt="Gallery Image 5"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery6.jpg.png" alt="Gallery Image 6"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery7.jpg.png" alt="Gallery Image 7"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery8.jpg.png" alt="Gallery Image 8"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery9.jpg.png" alt="Gallery Image 9"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery10.jpg.png" alt="Gallery Image 10"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery11.jpg.png" alt="Gallery Image 11"loading="lazy">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery12.jpg.jpg" alt="Gallery Image 12"loading="lazy">
-        </div>
+        <img src="images/gallery1.jpg.png" alt="Gallery 1" loading="lazy">
+        <img src="images/gallery2.jpg.png" alt="Gallery 2" loading="lazy">
+        <img src="images/gallery3.jpg.png" alt="Gallery 3" loading="lazy">
+        <img src="images/gallery4.jpg.png" alt="Gallery 4" loading="lazy">
+        <img src="images/gallery5.jpg.png" alt="Gallery 5" loading="lazy">
+        <img src="images/gallery6.jpg.png" alt="Gallery 6" loading="lazy">
+        <img src="images/gallery7.jpg.png" alt="Gallery 7" loading="lazy">
+        <img src="images/gallery8.jpg.png" alt="Gallery 8" loading="lazy">
+        <img src="images/gallery9.jpg.png" alt="Gallery 9" loading="lazy">
+        <img src="images/gallery10.jpg.png" alt="Gallery 10" loading="lazy">
+        <img src="images/gallery11.jpg.png" alt="Gallery 11" loading="lazy">
+        <img src="images/gallery12.jpg.jpg" alt="Gallery 12" loading="lazy">
 
     </div>
 
 </section>
 <section class="podcast reveal">
+
+    <h2>Vidlyra Podcast</h2>
+
     <div class="music-player">
-    <img src="images/podcastcover.jpg.png" class="cover-art"loading="lazy">
 
-    <h3>Hollow Frequency: Code Zero</h3>
+        <div class="cover-art">
 
-    <p>Episode 01 • Vidlyra Podcast</p>
+            <img src="images/podcastcover.jpg.png" alt="Vidlyra Podcast Cover" loading="lazy">
 
-    <audio id="audio">
+        </div>
 
-        <source src="audio/Podcost.mp3" type="audio/mpeg">
+        <div class="player-info">
 
-    </audio>
+            <h3>Hollow Frequency: Code Zero</h3>
 
-    <input
-        type="range"
-        id="progress"
-        value="0"
-        min="0"
-        max="100">
+            <p>Episode 1 • Now Streaming</p>
 
-    <div class="time">
+            <audio id="audio">
+                <source src="audio/Podcost.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
 
-    <span id="currentTime">0:00</span>
+            <!-- Player Controls -->
+            <div class="controls">
+                <button id="backBtn">⏪</button>
+                <button id="playBtn">▶</button>
+                <button id="nextBtn">⏩</button>
+            </div>
 
-    <span id="duration">08:36</span>
+            <!-- Progress Bar -->
+            <input type="range" id="progress" value="0">
 
-</div>
+            <div class="time">
+                <span id="currentTime">0:00</span>
+                <span id="duration">08:36</span>
+            </div>
 
-<div class="controls">
+            <!-- Volume -->
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
 
-    <button id="backBtn">⏮</button>
+        </div>
 
-    <button id="playBtn">▶</button>
+    </div>
 
-    <button id="nextBtn">⏭</button>
-
-</div>
-
-<div class="volume">
-
-    🔊
-
-    <input
-        type="range"
-        id="volume"
-        min="0"
-        max="1"
-        step="0.01"
-        value="1">
-
-</div>
-</div>
-
+</section>
 <section class="location reveal">
 
     <h2>Festival Location</h2>
