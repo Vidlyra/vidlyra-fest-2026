@@ -281,3 +281,46 @@ counters.forEach(counter => {
     updateCounter();
 
 });
+const ticketForm = document.getElementById("ticketForm");
+
+if (ticketForm) {
+
+    ticketForm.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const formData = new FormData(ticketForm);
+
+        try {
+
+            const response = await fetch("https://formspree.io/f/xzdlknkb", {
+
+                method: "POST",
+
+                body: formData,
+
+                headers: {
+                    "Accept": "application/json"
+                }
+
+            });
+
+            if (response.ok) {
+
+                window.location.href = "thankyou.html";
+
+            } else {
+
+                alert("Booking failed. Please try again.");
+
+            }
+
+        } catch (error) {
+
+            alert("Network error. Please try again.");
+
+        }
+
+    });
+
+}
