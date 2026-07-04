@@ -4,7 +4,7 @@ async function signUp() {
     const password = document.getElementById("password").value;
     const name = document.getElementById("name").value;
 
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error } = await window.sb.auth.signUp({
 
         email: email,
         password: password,
