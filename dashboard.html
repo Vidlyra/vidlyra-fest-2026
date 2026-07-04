@@ -2,16 +2,218 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidlyra Dashboard</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#081226;
+color:white;
+
+}
+
+header{
+
+width:100%;
+padding:20px 40px;
+background:#0d1b35;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 0 20px rgba(0,255,255,.15);
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:bold;
+color:#00E5FF;
+
+}
+
+.logout{
+
+background:#ff3b5c;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+
+}
+
+.dashboard{
+
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+
+}
+
+.welcome{
+
+font-size:36px;
+margin-bottom:30px;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+
+}
+
+.card{
+
+background:#13284d;
+border-radius:15px;
+padding:25px;
+transition:.3s;
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card h2{
+
+margin-bottom:15px;
+color:#00E5FF;
+
+}
+
+.card p{
+
+color:#d8d8d8;
+line-height:1.6;
+
+}
+
+.pass{
+
+font-size:22px;
+font-weight:bold;
+color:#FFD54A;
+
+}
+
+.button{
+
+margin-top:20px;
+display:inline-block;
+background:#00E5FF;
+color:#081226;
+padding:10px 18px;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+
+}
+
+</style>
+
 </head>
 
-<body style="background:#081226;color:white;font-family:Arial;text-align:center;padding-top:100px;">
+<body>
 
-<h1>🎉 Welcome to Vidlyra Fest 2026</h1>
+<header>
 
-<h2>Login Successful!</h2>
+<div class="logo">
+VIDLYRA FEST 2026
+</div>
 
-<p>Your dashboard is under development.</p>
+<button class="logout">
+Logout
+</button>
+
+</header>
+
+<div class="dashboard">
+
+<h1 class="welcome">
+Welcome 👋
+</h1>
+
+<div class="grid">
+
+<div class="card">
+
+<h2>👤 My Profile</h2>
+
+<p>Name : Loading...</p>
+
+<p>Email : Loading...</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎫 My Pass</h2>
+
+<p class="pass">
+No Pass Purchased
+</p>
+
+<a href="#" class="button">
+Buy Ticket
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>🏆 Events</h2>
+
+<p>
+
+Anime Quiz<br>
+Cosplay<br>
+Gaming Tournament<br>
+Art Contest
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎙 Podcast</h2>
+
+<p>
+
+Hollow Frequency<br>
+
+Episode 01
+
+</p>
+
+<a href="#" class="button">
+
+Listen
+
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </body>
 </html>
