@@ -1995,162 +1995,176 @@ body{
 
 }
 
-/* Character */
+.hero-showcase{
+
+    position:relative;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:90px 20px;
+
+    overflow:hidden;
+
+}
 
 .hero-image{
-    width:520px;
+
+    width:min(95%,900px);
+
     position:relative;
-    z-index:10;
-    animation:floating 5s ease-in-out infinite;
+    z-index:5;
+
+    animation:
+    floatHero 6s ease-in-out infinite,
+    fadeHero 1.5s ease;
 
     filter:
-    drop-shadow(0 0 20px rgba(0,255,255,.25))
-    drop-shadow(0 0 40px rgba(255,100,0,.15));
-}
+    drop-shadow(0 0 30px rgba(0,180,255,.45))
+    drop-shadow(0 0 60px rgba(255,120,0,.25));
 
-@keyframes floating{
-
-0%{
-transform:translateY(0px);
-}
-
-25%{
-transform:translateY(-10px);
-}
-
-50%{
-transform:translateY(-18px);
-}
-
-75%{
-transform:translateY(-8px);
-}
-
-100%{
-transform:translateY(0px);
-}
+    transition:.3s;
 
 }
 
-/* Glow */
+@keyframes floatHero{
 
-.glow{
+0%{transform:translateY(0);}
+50%{transform:translateY(-18px);}
+100%{transform:translateY(0);}
+
+}
+
+@keyframes fadeHero{
+
+from{
+
+opacity:0;
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* Blue + Orange Glow */
+
+.hero-light{
 
 position:absolute;
-width:550px;
-height:550px;
 
-background:radial-gradient(circle,
-rgba(0,200,255,.22),
+width:650px;
+height:650px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(0,170,255,.18) 0%,
+rgba(255,120,0,.12) 45%,
 transparent 70%);
 
-filter:blur(70px);
+animation:lightPulse 5s infinite;
 
-animation:pulse 6s infinite ease-in-out;
-
-bottom:80px;
-
-z-index:1;
+filter:blur(50px);
 
 }
 
-@keyframes pulse{
+@keyframes lightPulse{
 
-0%{
-transform:scale(.9);
-opacity:.5;
-}
-
-50%{
-transform:scale(1.15);
-opacity:1;
-}
-
-100%{
-transform:scale(.9);
-opacity:.5;
-}
+0%{transform:scale(.9);}
+50%{transform:scale(1.08);}
+100%{transform:scale(.9);}
 
 }
 
-/* Floating Particles */
+/* Sparkle */
 
-.particles{
+.hero-particles{
 
 position:absolute;
-width:100%;
-height:100%;
+inset:0;
 
 background-image:
 
-radial-gradient(circle,#ffffff 1px,transparent 2px),
-radial-gradient(circle,#00d5ff 2px,transparent 3px),
-radial-gradient(circle,#ff7b00 2px,transparent 3px);
+radial-gradient(#00cfff 2px,transparent 2px),
+radial-gradient(#ff8800 2px,transparent 2px);
 
-background-size:
-120px 120px,
-180px 180px,
-250px 250px;
+background-size:120px 120px;
 
-animation:particlesMove 25s linear infinite;
+animation:particlesMove 18s linear infinite;
 
-opacity:.5;
-
-z-index:0;
+opacity:.45;
 
 }
 
 @keyframes particlesMove{
 
-0%{
-transform:translateY(0);
-}
+from{
 
-100%{
-transform:translateY(-250px);
-}
+background-position:0 0,60px 60px;
 
 }
 
-/* Wind Effect */
+to{
 
-.wind{
+background-position:0 -600px,60px -540px;
+
+}
+
+}
+
+/* Wind */
+
+.hero-wind{
 
 position:absolute;
 
-width:200%;
-height:100%;
+width:180%;
+
+height:180%;
 
 background:
+
 repeating-linear-gradient(
 
 -18deg,
 
 transparent 0px,
-transparent 45px,
 
-rgba(255,255,255,.06) 47px,
+rgba(255,255,255,.05) 2px,
 
-transparent 50px
+transparent 5px,
+
+transparent 35px
 
 );
 
-animation:windMove 8s linear infinite;
+animation:windMove 9s linear infinite;
 
-opacity:.5;
-
-z-index:2;
+opacity:.3;
 
 }
 
 @keyframes windMove{
 
-0%{
-transform:translateX(-40%);
+from{
+
+transform:translateX(-15%);
+
 }
 
-100%{
-transform:translateX(0%);
+to{
+
+transform:translateX(15%);
+
 }
 
 }
