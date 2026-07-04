@@ -1996,38 +1996,33 @@ body{
 }
 
 .hero-showcase{
-
-    position:relative;
     width:100%;
+    min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
 
-    padding:90px 20px;
-
+    position:relative;
     overflow:hidden;
 
+    text-align:center;
 }
 
 .hero-image{
 
-    width:min(95%,900px);
+    display:block;
+
+    width:100%;
+    max-width:900px;
+
+    height:auto;
+
+    margin:0 auto;
 
     position:relative;
     z-index:5;
-
-    animation:
-    floatHero 6s ease-in-out infinite,
-    fadeHero 1.5s ease;
-
-    filter:
-    drop-shadow(0 0 30px rgba(0,180,255,.45))
-    drop-shadow(0 0 60px rgba(255,120,0,.25));
-
-    transition:.3s;
-
 }
-
 @keyframes floatHero{
 
 0%{transform:translateY(0);}
