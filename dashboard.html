@@ -166,16 +166,24 @@ Welcome 👋
 
 <h2>🎫 My Pass</h2>
 
-<p class="pass">
-No Pass Purchased
+<p class="pass" id="passType">
+Loading...
 </p>
 
-<button class="button" onclick="buyBasicPass()">
+<p id="ticketId"></p>
+
+<p id="passStatus"></p>
+
+<button
+id="buyButton"
+class="button"
+onclick="buyBasicPass()">
+
 Buy Basic Pass
+
 </button>
 
 </div>
-
 <div class="card">
 
 <h2>🏆 Events</h2>
