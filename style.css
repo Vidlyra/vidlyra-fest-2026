@@ -617,13 +617,17 @@ nav a:hover{
     border:3px solid orange;
     box-shadow:0 0 30px rgba(255,165,0,0.5);
 }
-/*==========================
-SPOTIFY PLAYER
-===========================*/
+/*=========================================
+VIDLYRA PODCAST PLAYER
+=========================================*/
 
 .podcast-section{
     width:100%;
     padding:80px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
     text-align:center;
 }
 
@@ -631,24 +635,46 @@ SPOTIFY PLAYER
     color:#fff;
     font-size:42px;
     font-weight:700;
-    margin-bottom:35px;
     letter-spacing:2px;
+    margin-bottom:35px;
+    text-align:center;
 }
 
 .player-card{
 
     width:100%;
-    max-width:450px;
-
-    margin:0 auto;
+    max-width:460px;
 
     background:#10131f;
 
     border-radius:25px;
 
-    padding:30px;
+    padding:35px;
 
-    box-shadow:0 15px 40px rgba(0,0,0,.45);
+    margin:0 auto;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.45),
+    0 0 25px rgba(0,170,255,.12);
+
+}
+
+.music-player{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
 
@@ -661,83 +687,98 @@ SPOTIFY PLAYER
 
     margin:0 auto 25px;
 
-    border-radius:20px;
-
     object-fit:cover;
 
+    border-radius:20px;
+
     box-shadow:
-        0 0 30px rgba(0,170,255,.30);
+    0 0 35px rgba(0,170,255,.35);
+
+    transition:.5s;
+
+}
+
+.cover-art.playing{
+
+    animation:spin 12s linear infinite;
+
+}
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+.music-player h2{
+
+    color:#ffffff;
+
+    font-size:34px;
+
+    margin:15px 0 8px;
+
+    text-align:center;
 
 }
 
 .music-player h3{
 
-    color:orange;
+    color:#ff9900;
+
+    font-size:24px;
 
     margin-bottom:10px;
+
+    text-align:center;
 
 }
 
 .music-player p{
 
-    color:#bbb;
+    color:#bdbdbd;
+
+    font-size:15px;
+
+    line-height:1.6;
 
     margin-bottom:25px;
+
+    text-align:center;
 
 }
 
 #progress{
+
     width:100%;
-    cursor:pointer;
-    accent-color:orange;
+
     margin:20px 0;
-}
-.controls{
-
-    display:flex;
-
-    justify-content:center;
-
-}
-
-.controls button{
-
-    width:70px;
-
-    height:70px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:orange;
-
-    color:black;
-
-    font-size:28px;
 
     cursor:pointer;
 
-    transition:.3s;
+    accent-color:#ff9800;
 
 }
 
-.controls button:hover{
-
-    transform:scale(1.1);
-
-}
 .time{
 
     display:flex;
 
     justify-content:space-between;
 
-    margin:15px 0;
+    width:100%;
 
-    color:#ccc;
+    color:#cfcfcf;
 
     font-size:14px;
+
+    margin-bottom:20px;
 
 }
 
@@ -751,7 +792,7 @@ SPOTIFY PLAYER
 
     gap:20px;
 
-    margin:25px 0;
+    margin:20px 0;
 
 }
 
@@ -765,9 +806,9 @@ SPOTIFY PLAYER
 
     border-radius:50%;
 
-    background:orange;
+    background:#ff9800;
 
-    color:black;
+    color:#000;
 
     font-size:24px;
 
@@ -775,11 +816,15 @@ SPOTIFY PLAYER
 
     transition:.3s;
 
+    box-shadow:0 0 20px rgba(255,152,0,.45);
+
 }
 
 .controls button:hover{
 
     transform:scale(1.1);
+
+    box-shadow:0 0 35px rgba(255,152,0,.9);
 
 }
 
@@ -791,7 +836,17 @@ SPOTIFY PLAYER
 
     gap:10px;
 
+    width:100%;
+
     margin-top:20px;
+
+}
+
+.volume span{
+
+    color:#ffffff;
+
+    font-size:18px;
 
 }
 
@@ -799,44 +854,9 @@ SPOTIFY PLAYER
 
     width:100%;
 
-}
-#volume{
-    accent-color:orange;
+    accent-color:#ff9800;
+
     cursor:pointer;
-}
-/*==========================
-PLAYER ANIMATION
-===========================*/
-
-.cover-art{
-    transition:0.5s;
-}
-
-.cover-art.playing{
-    animation:spin 12s linear infinite;
-}
-
-@keyframes spin{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-.controls button{
-
-    box-shadow:0 0 15px rgba(255,165,0,.5);
-
-}
-
-.controls button:hover{
-
-    box-shadow:0 0 30px orange;
 
 }
 /*==========================
