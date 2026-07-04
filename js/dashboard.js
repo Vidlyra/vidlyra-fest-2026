@@ -9,7 +9,39 @@ async function loadUser() {
         window.location.href = "login.html";
         return;
     }
+async function loadPass() {
 
+    const {
+        data: { user }
+    } = await window.sb.auth.getUser();
+
+    const { data, error } = await window.sb
+        .from("passes")
+        .select("*")
+        .eq("user_id", user.id)
+        .limit(1)
+        .single();
+
+    if (error) {
+
+        document.getElementById("passType").innerHTML =
+        "No Pass Purchased";
+
+        return;
+    }
+
+    document.getElementById("passType").innerHTML =
+    "🟢 " + data.pass_type + " PASS";
+
+    document.getElementById("ticketId").innerHTML =
+    "Ticket ID : " + data.ticket_id;
+
+    document.getElementById("passStatus").innerHTML =
+    "Status : " + data.status;
+
+    document.getElementById("buyButton").style.display = "none";
+
+}
     // Update the profile card
     document.getElementById("userName").textContent =
         user.user_metadata.full_name || "Participant";
@@ -25,3 +57,4 @@ async function logout() {
 }
 
 loadUser();
+loadPass();
