@@ -1,15 +1,18 @@
+// ===============================
+// Load Logged-in User
+// ===============================
 async function loadUser() {
 
     const {
-        data: { user }
+        data: { user },
+        error
     } = await window.sb.auth.getUser();
 
-    if (!user) {
+    if (error || !user) {
         window.location.href = "login.html";
         return;
     }
 
-    // Update Profile
     document.getElementById("userName").textContent =
         user.user_metadata.full_name || "Participant";
 
@@ -17,7 +20,9 @@ async function loadUser() {
         user.email;
 }
 
-// Load Pass
+// ===============================
+// Load User Pass
+// ===============================
 async function loadPass() {
 
     const {
@@ -29,41 +34,60 @@ async function loadPass() {
     const { data, error } = await window.sb
         .from("passes")
         .select("*")
-        .eq("user_id", user.id);
+        .eq("user_id", user.id)
+        .maybeSingle();
 
     if (error) {
-        console.error(error);
+        console.error("Pass Error:", error);
+
         document.getElementById("passType").textContent =
             "No Pass Purchased";
+
         return;
     }
 
-    if (!data || data.length === 0) {
+    if (!data) {
+
         document.getElementById("passType").textContent =
             "No Pass Purchased";
+
+        document.getElementById("ticketId").textContent = "";
+
+        document.getElementById("passStatus").textContent = "";
+
         return;
     }
-
-    const pass = data[0];
 
     document.getElementById("passType").textContent =
-        "🟢 " + pass.pass_type + " PASS";
+        "🟢 " + data.pass_type.toUpperCase() + " PASS";
 
     document.getElementById("ticketId").textContent =
-        "Ticket ID : " + pass.ticket_id;
+        "Ticket ID : " + data.ticket_id;
 
     document.getElementById("passStatus").textContent =
-        "Status : " + pass.status;
+        "Status : " + data.status;
 
     document.getElementById("buyButton").style.display = "none";
 }
 
+// ===============================
 // Logout
+// ===============================
 async function logout() {
+
     await window.sb.auth.signOut();
+
     window.location.href = "login.html";
+
 }
 
-// Load everything
-loadUser();
-loadPass();
+// ===============================
+// Start Dashboard
+// ===============================
+window.onload = function () {
+
+    loadUser();
+
+    loadPass();
+
+};
