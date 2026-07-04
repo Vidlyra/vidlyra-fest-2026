@@ -1,14 +1,23 @@
 async function loadUser() {
 
     const {
-        data: { user },
-        error
+        data: { user }
     } = await window.sb.auth.getUser();
 
     if (!user) {
         window.location.href = "login.html";
         return;
     }
+
+    // Update Profile
+    document.getElementById("userName").textContent =
+        user.user_metadata.full_name || "Participant";
+
+    document.getElementById("userEmail").textContent =
+        user.email;
+}
+
+// Load Pass
 async function loadPass() {
 
     const {
@@ -24,12 +33,14 @@ async function loadPass() {
 
     if (error) {
         console.error(error);
-        document.getElementById("passType").textContent = "No Pass Purchased";
+        document.getElementById("passType").textContent =
+            "No Pass Purchased";
         return;
     }
 
     if (!data || data.length === 0) {
-        document.getElementById("passType").textContent = "No Pass Purchased";
+        document.getElementById("passType").textContent =
+            "No Pass Purchased";
         return;
     }
 
@@ -39,19 +50,12 @@ async function loadPass() {
         "🟢 " + pass.pass_type + " PASS";
 
     document.getElementById("ticketId").textContent =
-        "Ticket ID: " + pass.ticket_id;
+        "Ticket ID : " + pass.ticket_id;
 
     document.getElementById("passStatus").textContent =
-        "Status: " + pass.status;
+        "Status : " + pass.status;
 
     document.getElementById("buyButton").style.display = "none";
-}
-    // Update the profile card
-    document.getElementById("userName").textContent =
-        user.user_metadata.full_name || "Participant";
-
-    document.getElementById("userEmail").textContent =
-        user.email;
 }
 
 // Logout
@@ -60,5 +64,6 @@ async function logout() {
     window.location.href = "login.html";
 }
 
+// Load everything
 loadUser();
 loadPass();
