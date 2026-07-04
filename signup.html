@@ -1,24 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Vidlyra Fest 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up | Vidlyra Fest 2026</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#081226;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:350px;
+    padding:30px;
+    border-radius:15px;
+    background:#13284d;
+}
+
+h2{
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#00bfff;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0099dd;
+}
+
+#message{
+    margin-top:15px;
+    text-align:center;
+}
+</style>
+
 </head>
 <body>
 
-    <h1>Vidlyra Fest 2026</h1>
+<div class="container">
 
-    <p>Sign Up Page (We'll design it beautifully next.)</p>
+<h2>Vidlyra Fest 2026</h2>
 
-    <!-- Supabase Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<input type="text" id="name" placeholder="Full Name">
 
-    <!-- Your Supabase Connection -->
-    <script src="js/supabase.js"></script>
+<input type="email" id="email" placeholder="Email">
 
-    <!-- Sign Up Logic -->
-    <script src="js/signup.js"></script>
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="signUp()">Create Account</button>
+
+<p id="message"></p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/signup.js"></script>
 
 </body>
 </html>
