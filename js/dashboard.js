@@ -15,32 +15,36 @@ async function loadPass() {
         data: { user }
     } = await window.sb.auth.getUser();
 
+    if (!user) return;
+
     const { data, error } = await window.sb
         .from("passes")
         .select("*")
-        .eq("user_id", user.id)
-        .limit(1)
-        .single();
+        .eq("user_id", user.id);
 
     if (error) {
-
-        document.getElementById("passType").innerHTML =
-        "No Pass Purchased";
-
+        console.error(error);
+        document.getElementById("passType").textContent = "No Pass Purchased";
         return;
     }
 
-    document.getElementById("passType").innerHTML =
-    "🟢 " + data.pass_type + " PASS";
+    if (!data || data.length === 0) {
+        document.getElementById("passType").textContent = "No Pass Purchased";
+        return;
+    }
 
-    document.getElementById("ticketId").innerHTML =
-    "Ticket ID : " + data.ticket_id;
+    const pass = data[0];
 
-    document.getElementById("passStatus").innerHTML =
-    "Status : " + data.status;
+    document.getElementById("passType").textContent =
+        "🟢 " + pass.pass_type + " PASS";
+
+    document.getElementById("ticketId").textContent =
+        "Ticket ID: " + pass.ticket_id;
+
+    document.getElementById("passStatus").textContent =
+        "Status: " + pass.status;
 
     document.getElementById("buyButton").style.display = "none";
-
 }
     // Update the profile card
     document.getElementById("userName").textContent =
