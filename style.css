@@ -621,35 +621,52 @@ nav a:hover{
 SPOTIFY PLAYER
 ===========================*/
 
-.music-player{
+.podcast-section{
+    width:100%;
+    padding:80px 20px;
+    text-align:center;
+}
 
-    background:#181818;
+.podcast-title{
+    color:#fff;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:35px;
+    letter-spacing:2px;
+}
 
-    max-width:420px;
+.player-card{
 
-    margin:auto;
+    width:100%;
+    max-width:450px;
 
-    padding:30px;
+    margin:0 auto;
+
+    background:#10131f;
 
     border-radius:25px;
 
-    text-align:center;
+    padding:30px;
 
-    box-shadow:0 0 25px rgba(255,165,0,.4);
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
 
 }
 
 .cover-art{
 
-    width:250px;
+    width:240px;
+    height:240px;
 
-    height:250px;
+    display:block;
 
-    object-fit:cover;
+    margin:0 auto 25px;
 
     border-radius:20px;
 
-    margin-bottom:25px;
+    object-fit:cover;
+
+    box-shadow:
+        0 0 30px rgba(0,170,255,.30);
 
 }
 
