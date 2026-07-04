@@ -324,31 +324,29 @@ if (ticketForm) {
     });
 
 }
-/* ===== Hero Mouse Parallax ===== */
-
 const hero = document.querySelector(".hero-image");
 
-if (hero) {
+if(hero){
 
-    let mouseX = 0;
-    let mouseY = 0;
+let mouseX = 0;
+let mouseY = 0;
 
-    document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove",(e)=>{
 
-        mouseX = (e.clientX - window.innerWidth / 2) / 60;
-        mouseY = (e.clientY - window.innerHeight / 2) / 60;
+mouseX=(e.clientX-window.innerWidth/2)/40;
+mouseY=(e.clientY-window.innerHeight/2)/45;
 
-    });
+});
 
-    function animateHero() {
+function animateHero(){
 
-        hero.style.transform =
-            `translate(${mouseX}px, ${mouseY}px)`;
+hero.style.transform=
+`translate(${mouseX}px,${mouseY}px)`;
 
-        requestAnimationFrame(animateHero);
+requestAnimationFrame(animateHero);
 
-    }
+}
 
-    animateHero();
+animateHero();
 
 }
