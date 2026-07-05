@@ -18,6 +18,18 @@ async function loadUser() {
 
     document.getElementById("userEmail").textContent =
         user.email;
+    const { data: profile } = await window.sb
+    .from("profiles")
+    .select("avatar_url")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+if (profile && profile.avatar_url) {
+
+    document.getElementById("userAvatar").src =
+        profile.avatar_url;
+
+}
 
     const ticketName = document.getElementById("userNameTicket");
 
