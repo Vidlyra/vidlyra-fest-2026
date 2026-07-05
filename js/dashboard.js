@@ -137,6 +137,8 @@ async function logout() {
 // Upload Avatar
 // ===============================
 async function uploadAvatar() {
+    console.log("Current User ID:", user.id);
+console.log("Avatar URL:", avatarUrl);
 
     const file =
         document.getElementById("avatarFile").files[0];
