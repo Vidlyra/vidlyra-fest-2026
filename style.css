@@ -1869,6 +1869,96 @@ textarea:focus{
     outline-offset:3px;
 
 }
+/* ==========================
+   VIDLYRA DIGITAL TICKET
+========================== */
+
+#ticketCard{
+
+background:linear-gradient(135deg,#13284d,#09111f);
+border:2px solid #00E5FF;
+box-shadow:0 0 25px rgba(0,229,255,.4);
+text-align:center;
+overflow:hidden;
+position:relative;
+
+}
+
+#ticketCard::before{
+
+content:"";
+position:absolute;
+top:-100%;
+left:-50%;
+width:200%;
+height:200%;
+background:linear-gradient(
+45deg,
+transparent,
+rgba(0,229,255,.15),
+transparent
+);
+animation:shine 5s linear infinite;
+
+}
+
+@keyframes shine{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+#ticketCard h2{
+
+color:#00E5FF;
+letter-spacing:2px;
+margin-bottom:15px;
+
+}
+
+#ticketCard h3{
+
+font-size:28px;
+color:#FFD54A;
+margin:20px 0;
+
+}
+
+#ticketCard p{
+
+margin:12px 0;
+font-size:16px;
+
+}
+
+#qrcode{
+
+margin-top:25px;
+display:flex;
+justify-content:center;
+
+}
+
+#qrcode img{
+
+background:white;
+padding:10px;
+border-radius:12px;
+
+}
+
+#ticketCard hr{
+
+border:1px solid rgba(255,255,255,.15);
+margin:20px 0;
+
+}
 .guest-card,
 .event-card,
 .ticket-card,
