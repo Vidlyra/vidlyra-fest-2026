@@ -485,3 +485,300 @@ Logout
 </header>
 
 <div class="dashboard">
+<!-- ==========================
+WELCOME
+========================== -->
+
+<h1 class="welcome">
+    Welcome 👋
+</h1>
+
+<!-- ==========================
+STATISTICS
+========================== -->
+
+<div class="stats">
+
+    <div class="stat-card">
+
+        <h3>🎫 My Pass</h3>
+
+        <p id="topPass">
+            Loading...
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>🏆 My Events</h3>
+
+        <p id="eventCount">
+            0
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>🎙 Podcast</h3>
+
+        <p>
+            Episode 01
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+MAIN GRID
+========================== -->
+
+<div class="grid">
+
+<!-- ==========================
+PROFILE CARD
+========================== -->
+
+<div class="card">
+
+<h2>
+👤 My Profile
+</h2>
+
+<p>
+
+<strong>Name</strong><br>
+
+<span id="userName">
+
+Loading...
+
+</span>
+
+</p>
+
+<br>
+
+<p>
+
+<strong>Email</strong><br>
+
+<span id="userEmail">
+
+Loading...
+
+</span>
+
+</p>
+
+</div>
+
+<!-- ==========================
+DIGITAL TICKET
+========================== -->
+
+<div class="card ticket-card">
+
+<div class="ticket-header">
+
+<h2>
+
+VIDLYRA FEST 2026
+
+</h2>
+
+<span
+class="badge"
+id="passType">
+
+Loading...
+
+</span>
+
+</div>
+
+<div class="ticket-body">
+
+<div class="ticket-left">
+
+<h3 id="userNameTicket">
+
+Participant
+
+</h3>
+
+<p>
+
+<strong>Ticket ID</strong><br>
+
+<span id="ticketId">
+
+Loading...
+
+</span>
+
+</p>
+
+<p>
+
+<strong>Status</strong><br>
+
+<span id="passStatus">
+
+Loading...
+
+</span>
+
+</p>
+
+<p>
+
+<strong>Date</strong><br>
+
+07 July 2026
+
+</p>
+
+<p>
+
+<strong>Venue</strong><br>
+
+Vidlyra Fest Arena
+
+</p>
+
+</div>
+
+<div class="ticket-right">
+
+<div id="qrcode"></div>
+
+</div>
+
+</div>
+
+<button
+
+id="buyButton"
+
+class="button"
+
+onclick="buyBasicPass()">
+
+Buy Basic Pass
+
+</button>
+
+</div>
+<!-- ==========================
+EVENTS
+========================== -->
+
+<div class="card">
+
+<h2>🏆 Events</h2>
+
+<p><strong>Anime Quiz</strong></p>
+
+<button class="button" onclick="joinEvent('Anime Quiz')">
+Join Event
+</button>
+
+<br><br>
+
+<p><strong>Fan Anime Stories</strong></p>
+
+<button class="button" onclick="joinEvent('Fan Anime Stories')">
+Join Event
+</button>
+
+<br><br>
+
+<p><strong>Gaming Tournament</strong></p>
+
+<button class="button" onclick="joinEvent('Gaming Tournament')">
+Join Event
+</button>
+
+<br><br>
+
+<p><strong>Art Contest</strong></p>
+
+<button class="button" onclick="joinEvent('Art Contest')">
+Join Event
+</button>
+
+</div>
+
+<!-- ==========================
+MY EVENTS
+========================== -->
+
+<div class="card">
+
+<h2>📋 My Events</h2>
+
+<div id="myEvents">
+
+Loading...
+
+</div>
+
+</div>
+
+<!-- ==========================
+PODCAST
+========================== -->
+
+<div class="card">
+
+<h2>🎙 Vidlyra Podcast</h2>
+
+<p>
+
+<strong>Hollow Frequency: Code Zero</strong>
+
+</p>
+
+<br>
+
+<p>
+
+Episode 01
+
+</p>
+
+<br>
+
+<a href="#" class="button">
+
+🎧 Listen Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+SCRIPTS
+========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/pass.js"></script>
+
+<script src="js/events.js"></script>
+
+</body>
+</html>
