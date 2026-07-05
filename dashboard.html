@@ -162,40 +162,48 @@ Welcome 👋
 
 </div>
 
-<div class="card" id="ticketCard">
+<div class="card ticket-card" id="ticketCard">
 
-    <h2>🎫 VIDLYRA FEST 2026</h2>
+    <div class="ticket-header">
+        <h2>VIDLYRA FEST 2026</h2>
+        <span class="badge" id="passType">BASIC PASS</span>
+    </div>
 
-    <h3 id="passType">Loading...</h3>
+    <div class="ticket-body">
 
-    <hr>
+        <div class="ticket-left">
 
-    <p>
-        <strong>Participant</strong><br>
-        <span id="userNameTicket">Loading...</span>
-    </p>
+            <h3 id="userNameTicket">Participant</h3>
 
-    <p>
-        <strong>Ticket ID</strong><br>
-        <span id="ticketId"></span>
-    </p>
+            <p>
+                <strong>Ticket ID</strong><br>
+                <span id="ticketId"></span>
+            </p>
 
-    <p>
-        <strong>Status</strong><br>
-        <span id="passStatus"></span>
-    </p>
+            <p>
+                <strong>Status</strong><br>
+                <span id="passStatus"></span>
+            </p>
 
-    <p>
-        <strong>Event Date</strong><br>
-        07 July 2026
-    </p>
+            <p>
+                <strong>Date</strong><br>
+                07 July 2026
+            </p>
 
-    <p>
-        <strong>Venue</strong><br>
-        Vidlyra Fest Arena
-    </p>
+            <p>
+                <strong>Venue</strong><br>
+                Vidlyra Fest Arena
+            </p>
 
-    <div id="qrcode"></div>
+        </div>
+
+        <div class="ticket-right">
+
+            <div id="qrcode"></div>
+
+        </div>
+
+    </div>
 
     <button
         id="buyButton"
