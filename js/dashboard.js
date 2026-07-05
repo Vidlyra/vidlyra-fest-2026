@@ -66,6 +66,13 @@ async function loadPass() {
 
     document.getElementById("passStatus").textContent =
         "Status : " + data.status;
+    document.getElementById("qrcode").innerHTML = "";
+
+new QRCode(document.getElementById("qrcode"), {
+    text: data.ticket_id,
+    width: 180,
+    height: 180
+});
 
     document.getElementById("buyButton").style.display = "none";
 }
