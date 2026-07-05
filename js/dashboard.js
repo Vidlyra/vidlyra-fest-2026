@@ -18,8 +18,16 @@ async function loadUser() {
 
     document.getElementById("userEmail").textContent =
         user.email;
-    document.getElementById("userNameTicket").textContent =
-user.user_metadata.full_name || "Participant";
+
+    const ticketName = document.getElementById("userNameTicket");
+
+    if (ticketName) {
+        ticketName.textContent =
+            user.user_metadata.full_name || "Participant";
+    }
+
+}
+
 // ===============================
 // Load User Pass
 // ===============================
@@ -38,7 +46,7 @@ async function loadPass() {
         .maybeSingle();
 
     if (error) {
-        console.error("Pass Error:", error);
+        console.error(error);
 
         document.getElementById("passType").textContent =
             "No Pass Purchased";
@@ -56,27 +64,51 @@ async function loadPass() {
         document.getElementById("passStatus").textContent = "";
 
         return;
+
     }
 
+    // Pass Type
     document.getElementById("passType").textContent =
         "🟢 " + data.pass_type.toUpperCase() + " PASS";
-    document.getElementById("topPass").textContent =
-data.pass_type.toUpperCase();
 
+    // Dashboard Top Pass (if exists)
+    const topPass = document.getElementById("topPass");
+
+    if (topPass) {
+        topPass.textContent =
+            data.pass_type.toUpperCase();
+    }
+
+    // Ticket ID
     document.getElementById("ticketId").textContent =
-        "Ticket ID : " + data.ticket_id;
+        data.ticket_id;
 
+    // Status
     document.getElementById("passStatus").textContent =
-        "Status : " + data.status;
-    document.getElementById("qrcode").innerHTML = "";
+        data.status;
 
-new QRCode(document.getElementById("qrcode"), {
-    text: data.ticket_id,
-    width: 180,
-    height: 180
-});
+    // QR Code
+    const qr = document.getElementById("qrcode");
 
-    document.getElementById("buyButton").style.display = "none";
+    if (qr) {
+
+        qr.innerHTML = "";
+
+        new QRCode(qr, {
+            text: data.ticket_id,
+            width: 180,
+            height: 180
+        });
+
+    }
+
+    // Hide Buy Button
+    const buyButton = document.getElementById("buyButton");
+
+    if (buyButton) {
+        buyButton.style.display = "none";
+    }
+
 }
 
 // ===============================
@@ -93,10 +125,10 @@ async function logout() {
 // ===============================
 // Start Dashboard
 // ===============================
-window.onload = function () {
+window.onload = async function () {
 
-    loadUser();
+    await loadUser();
 
-    loadPass();
+    await loadPass();
 
 };
