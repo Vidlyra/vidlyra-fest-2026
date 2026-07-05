@@ -60,6 +60,8 @@ async function loadPass() {
 
     document.getElementById("passType").textContent =
         "🟢 " + data.pass_type.toUpperCase() + " PASS";
+    document.getElementById("topPass").textContent =
+data.pass_type.toUpperCase();
 
     document.getElementById("ticketId").textContent =
         "Ticket ID : " + data.ticket_id;
