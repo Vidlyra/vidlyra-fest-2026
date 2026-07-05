@@ -139,6 +139,7 @@ async function logout() {
 async function uploadAvatar() {
     console.log("Current User ID:", user.id);
 console.log("Avatar URL:", avatarUrl);
+    console.log("Update Error:", updateError);
 
     const file =
         document.getElementById("avatarFile").files[0];
