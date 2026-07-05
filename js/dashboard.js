@@ -133,7 +133,73 @@ async function logout() {
     window.location.href = "login.html";
 
 }
+// ===============================
+// Upload Avatar
+// ===============================
+async function uploadAvatar() {
 
+    const file =
+        document.getElementById("avatarFile").files[0];
+
+    if (!file) {
+
+        alert("Please select an image.");
+
+        return;
+
+    }
+
+    const {
+        data: { user }
+    } = await window.sb.auth.getUser();
+
+    if (!user) return;
+
+    const fileName =
+        user.id + "-" + Date.now() + "-" + file.name;
+
+    // Upload image
+    const { error: uploadError } = await window.sb.storage
+        .from("avatars")
+        .upload(fileName, file);
+
+    if (uploadError) {
+
+        alert(uploadError.message);
+
+        return;
+
+    }
+
+    // Get Public URL
+    const { data } = window.sb.storage
+        .from("avatars")
+        .getPublicUrl(fileName);
+
+    const avatarUrl = data.publicUrl;
+
+    // Save URL to profiles table
+    const { error: updateError } = await window.sb
+        .from("profiles")
+        .update({
+            avatar_url: avatarUrl
+        })
+        .eq("user_id", user.id);
+
+    if (updateError) {
+
+        alert(updateError.message);
+
+        return;
+
+    }
+
+    document.getElementById("userAvatar").src =
+        avatarUrl;
+
+    alert("✅ Avatar uploaded successfully!");
+
+}
 // ===============================
 // Start Dashboard
 // ===============================
