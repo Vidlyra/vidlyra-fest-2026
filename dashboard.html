@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Vidlyra Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -11,32 +19,59 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
 
-background:#081226;
-color:white;
+background:
+linear-gradient(rgba(4,12,28,.94),rgba(4,12,28,.94)),
+radial-gradient(circle at top,#00E5FF22,transparent 40%);
+
+color:#fff;
+
+min-height:100vh;
+
+overflow-x:hidden;
 
 }
+
+/*==========================
+HEADER
+===========================*/
 
 header{
 
 width:100%;
+
 padding:20px 40px;
-background:#0d1b35;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
-box-shadow:0 0 20px rgba(0,255,255,.15);
+
+background:#081226;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+position:sticky;
+
+top:0;
+
+z-index:100;
 
 }
 
 .logo{
 
-font-size:28px;
-font-weight:bold;
+font-size:30px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
 color:#00E5FF;
 
 }
@@ -44,85 +79,386 @@ color:#00E5FF;
 .logout{
 
 background:#ff3b5c;
-padding:10px 20px;
+
 border:none;
-border-radius:8px;
-color:white;
+
+color:#fff;
+
+padding:12px 22px;
+
+border-radius:10px;
+
 cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
 
 }
 
+.logout:hover{
+
+transform:translateY(-2px);
+
+}
+
+/*==========================
+CONTAINER
+===========================*/
+
 .dashboard{
 
-max-width:1200px;
+max-width:1350px;
+
 margin:auto;
+
 padding:40px 20px;
 
 }
 
+/*==========================
+WELCOME
+===========================*/
+
 .welcome{
 
-font-size:36px;
-margin-bottom:30px;
+font-size:40px;
+
+font-weight:700;
+
+margin-bottom:35px;
 
 }
+
+/*==========================
+STATS
+===========================*/
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+margin-bottom:35px;
+
+}
+
+.stat-card{
+
+background:#13284d;
+
+padding:25px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+
+text-align:center;
+
+}
+
+.stat-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 25px rgba(0,229,255,.25);
+
+}
+
+.stat-card h3{
+
+color:#00E5FF;
+
+margin-bottom:12px;
+
+}
+
+.stat-card p{
+
+font-size:22px;
+
+font-weight:700;
+
+color:#FFD54A;
+
+}
+
+/*==========================
+GRID
+===========================*/
 
 .grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
 gap:25px;
 
 }
 
+/*==========================
+CARD
+===========================*/
+
 .card{
 
 background:#13284d;
-border-radius:15px;
+
+border-radius:20px;
+
 padding:25px;
-transition:.3s;
+
 border:1px solid rgba(255,255,255,.08);
+
+transition:.3s;
 
 }
 
 .card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-6px);
 
 }
 
 .card h2{
 
-margin-bottom:15px;
+margin-bottom:20px;
+
 color:#00E5FF;
 
 }
 
-.card p{
+/*==========================
+DIGITAL PASS
+===========================*/
 
-color:#d8d8d8;
-line-height:1.6;
+.ticket-card{
+
+position:relative;
+
+overflow:hidden;
+
+background:linear-gradient(135deg,#102446,#081226,#16396c);
+
+border:2px solid #00E5FF;
+
+box-shadow:0 0 35px rgba(0,229,255,.35);
 
 }
 
-.pass{
+.ticket-card::before{
 
-font-size:22px;
-font-weight:bold;
+content:"";
+
+position:absolute;
+
+width:250%;
+
+height:250%;
+
+left:-80%;
+
+top:-80%;
+
+background:linear-gradient(
+
+45deg,
+
+transparent,
+
+rgba(255,255,255,.12),
+
+transparent
+
+);
+
+animation:rotateGlow 8s linear infinite;
+
+}
+
+@keyframes rotateGlow{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.ticket-header{
+
+position:relative;
+
+z-index:2;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.ticket-header h2{
+
+margin:0;
+
+font-size:26px;
+
+}
+
+.badge{
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:#00E676;
+
+color:#081226;
+
+font-weight:700;
+
+}
+
+.ticket-body{
+
+position:relative;
+
+z-index:2;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+.ticket-left{
+
+flex:1;
+
+min-width:220px;
+
+}
+
+.ticket-left h3{
+
+font-size:28px;
+
+margin-bottom:20px;
+
 color:#FFD54A;
+
+}
+
+.ticket-left p{
+
+margin:12px 0;
+
+line-height:1.7;
+
+}
+
+.ticket-right{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+#qrcode{
+
+background:#fff;
+
+padding:14px;
+
+border-radius:15px;
 
 }
 
 .button{
 
-margin-top:20px;
+margin-top:18px;
+
 display:inline-block;
+
+padding:12px 22px;
+
 background:#00E5FF;
+
 color:#081226;
-padding:10px 18px;
+
 text-decoration:none;
-border-radius:8px;
-font-weight:bold;
+
+font-weight:700;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.button:hover{
+
+transform:translateY(-3px);
+
+}
+
+#myEvents p{
+
+margin:10px 0;
+
+}
+
+@media(max-width:768px){
+
+header{
+
+padding:18px;
+
+}
+
+.logo{
+
+font-size:24px;
+
+}
+
+.welcome{
+
+font-size:30px;
+
+}
+
+.ticket-body{
+
+flex-direction:column;
+
+text-align:center;
+
+}
 
 }
 
@@ -135,181 +471,17 @@ font-weight:bold;
 <header>
 
 <div class="logo">
+
 VIDLYRA FEST 2026
+
 </div>
 
 <button class="logout" onclick="logout()">
+
 Logout
+
 </button>
 
 </header>
 
-<div class="welcome-box">
-
-    <h1 id="welcomeText">Welcome 👋</h1>
-
-    <div class="stats">
-
-        <div class="stat-card">
-
-            <h3>🎫 Pass</h3>
-
-            <p id="topPass">Loading...</p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h3>🏆 Events</h3>
-
-            <p>0 Joined</p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h3>🎙 Podcast</h3>
-
-            <p>Episode 01</p>
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="card ticket-card" id="ticketCard">
-
-    <div class="ticket-header">
-        <h2>VIDLYRA FEST 2026</h2>
-        <span class="badge" id="passType">BASIC PASS</span>
-    </div>
-
-    <div class="ticket-body">
-
-        <div class="ticket-left">
-
-            <h3 id="userNameTicket">Participant</h3>
-
-            <p>
-                <strong>Ticket ID</strong><br>
-                <span id="ticketId"></span>
-            </p>
-
-            <p>
-                <strong>Status</strong><br>
-                <span id="passStatus"></span>
-            </p>
-
-            <p>
-                <strong>Date</strong><br>
-                07 July 2026
-            </p>
-
-            <p>
-                <strong>Venue</strong><br>
-                Vidlyra Fest Arena
-            </p>
-
-        </div>
-
-        <div class="ticket-right">
-
-            <div id="qrcode"></div>
-
-        </div>
-
-    </div>
-
-    <button
-        id="buyButton"
-        class="button"
-        onclick="buyBasicPass()">
-        Buy Basic Pass
-    </button>
-
-</div>
-<div class="card">
-
-<h2>🏆 Events</h2>
-
-<p>
-
-<p>
-Anime Quiz
-</p>
-
-<button class="button" onclick="joinEvent('Anime Quiz')">
-Join
-</button>
-
-<p>
-Fan Anime stories
-</p>
-
-<button class="button" onclick="joinEvent('Cosplay')">
-Join
-</button>
-
-<p>
-Gaming Tournament
-</p>
-
-<button class="button" onclick="joinEvent('Gaming Tournament')">
-Join
-</button>
-
-<p>
-Art Contest
-</p>
-
-<button class="button" onclick="joinEvent('Art Contest')">
-Join
-</button>
-
-</p>
-
-</div>
-    <div class="card">
-
-    <h2>📋 My Events</h2>
-
-    <div id="myEvents">
-
-        Loading...
-
-    </div>
-
-</div>
-
-<div class="card">
-
-<h2>🎙 Podcast</h2>
-
-<p>
-
-Hollow Frequency<br>
-
-Episode 01
-
-</p>
-
-<a href="#" class="button">
-
-Listen
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="js/supabase.js"></script>
-<script src="js/dashboard.js"></script>
-<script src="js/pass.js"></script>
-<script src="js/events.js"></script>
-</body>
-</html>
+<div class="dashboard">
