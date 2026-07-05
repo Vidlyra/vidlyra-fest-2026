@@ -19,9 +19,7 @@ async function loadUser() {
     document.getElementById("userEmail").textContent =
         user.email;
     document.getElementById("userNameTicket").textContent =
-        user.user_metadata.full_name || "Participant";
-}
-
+user.user_metadata.full_name || "Participant";
 // ===============================
 // Load User Pass
 // ===============================
