@@ -29,11 +29,13 @@ async function loadAvatars() {
 
     // Load Avatars
     const { data: avatars, error } = await window.sb
-        .from("avatars")
-        .select("*")
-        .eq("active", true)
-        .order("id");
+        const { data: avatars, error } = await window.sb
+    .from("avatars")
+    .select("*")
+    .order("id");
 
+console.log("Avatars:", avatars);
+console.log("Error:", error);
     if (error) {
 
         console.error(error);
@@ -156,14 +158,5 @@ async function selectAvatar(id) {
 
     location.href = "dashboard.html";
 }
-const { data, error } = await window.sb
-    .from("profiles")
-    .update({
-        selected_avatar: id
-    })
-    .eq("user_id", user.id)
-    .select();
 
-console.log(data);
-console.log(error);
 loadAvatars();
