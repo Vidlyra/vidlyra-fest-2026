@@ -156,4 +156,14 @@ async function selectAvatar(id) {
 
     location.href = "dashboard.html";
 }
+const { data, error } = await window.sb
+    .from("profiles")
+    .update({
+        selected_avatar: id
+    })
+    .eq("user_id", user.id)
+    .select();
+
+console.log(data);
+console.log(error);
 loadAvatars();
