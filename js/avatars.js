@@ -94,3 +94,34 @@ async function loadAvatars() {
     });
 
 }
+// =======================================
+// Save Selected Avatar
+// =======================================
+
+async function selectAvatar(id) {
+
+    const {
+        data: { user }
+    } = await window.sb.auth.getUser();
+
+    const { error } = await window.sb
+        .from("profiles")
+        .update({
+            selected_avatar: id
+        })
+        .eq("user_id", user.id);
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+
+    }
+
+    alert("✅ Frequency Avatar Selected!");
+
+    window.location.href = "dashboard.html";
+
+}
+loadAvatars();
