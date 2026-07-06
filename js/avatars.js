@@ -104,6 +104,9 @@ async function selectAvatar(id) {
         data: { user }
     } = await window.sb.auth.getUser();
 
+    console.log("User ID:", user.id);
+    console.log("Selected Avatar:", id);
+
     const { error } = await window.sb
         .from("profiles")
         .update({
@@ -113,11 +116,15 @@ async function selectAvatar(id) {
 
     if (error) {
 
+        console.error(error);
+
         alert(error.message);
 
         return;
 
     }
+
+    console.log("Avatar Saved!");
 
     alert("✅ Frequency Avatar Selected!");
 
