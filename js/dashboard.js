@@ -18,12 +18,35 @@ async function loadUser() {
 
     document.getElementById("userEmail").textContent =
         user.email;
-    const { data: profile } = await window.sb
-    .from("profiles")
-    .select("avatar_url")
-    .eq("user_id", user.id)
-    .maybeSingle();
+// ===============================
+// Load Selected Frequency Avatar
+// ===============================
 
+const { data: profile } = await window.sb
+.from("profiles")
+.select("selected_avatar")
+.eq("user_id", user.id)
+.maybeSingle();
+
+if(profile && profile.selected_avatar){
+
+    const { data: avatar } = await window.sb
+    .from("avatars")
+    .select("image_url, avatar_name")
+    .eq("id", profile.selected_avatar)
+    .single();
+
+    if(avatar){
+
+        document.getElementById("userAvatar").src =
+        avatar.image_url;
+
+        document.getElementById("userAvatar").alt =
+        avatar.avatar_name;
+
+    }
+
+}
 if (profile && profile.avatar_url) {
 
     document.getElementById("userAvatar").src =
