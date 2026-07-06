@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VIP Pass | Vidlyra Fest 2026</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#050814;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+
+}
+
+.card{
+
+width:95%;
+max-width:720px;
+
+padding:45px;
+
+border-radius:25px;
+
+background:linear-gradient(135deg,#220044,#081226,#001933);
+
+border:2px solid gold;
+
+box-shadow:0 0 45px rgba(255,215,0,.35);
+
+text-align:center;
+
+}
+
+h1{
+
+font-size:46px;
+
+color:gold;
+
+margin-bottom:15px;
+
+}
+
+.price{
+
+font-size:65px;
+
+font-weight:bold;
+
+margin:20px 0;
+
+color:#FFD700;
+
+}
+
+.subtitle{
+
+color:#bbb;
+
+margin-bottom:35px;
+
+}
+
+.features{
+
+text-align:left;
+
+max-width:520px;
+
+margin:auto;
+
+}
+
+.features p{
+
+padding:12px 0;
+
+font-size:18px;
+
+}
+
+.button{
+
+margin-top:35px;
+
+padding:15px 40px;
+
+font-size:20px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+background:gold;
+
+color:#081226;
+
+transition:.3s;
+
+}
+
+.button:hover{
+
+transform:scale(1.05);
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:25px;
+
+color:#00E5FF;
+
+text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>👑 VIP PASS</h1>
+
+<p class="subtitle">
+
+The highest membership of Vidlyra Fest.
+
+</p>
+
+<div class="price">
+
+₹499
+
+</div>
+
+<div class="features">
+
+<p>👑 Legendary Frequency Avatars</p>
+
+<p>✨ Animated Aura</p>
+
+<p>🌌 VIP Profile Frame</p>
+
+<p>💠 VIP Badge</p>
+
+<p>🎫 Exclusive VIP Ticket</p>
+
+<p>🚀 Early Access Features</p>
+
+<p>🎁 Founder Rewards</p>
+
+<p>⭐ Future VIP Collections</p>
+
+</div>
+
+<button
+
+class="button"
+
+onclick="buyVIPPass()">
+
+Become VIP
+
+</button>
+
+<br>
+
+<a
+href="dashboard.html"
+class="back">
+
+← Back to Dashboard
+
+</a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/vip.js"></script>
+
+</body>
+</html>
