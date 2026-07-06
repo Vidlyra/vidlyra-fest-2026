@@ -80,8 +80,22 @@ async function loadPass() {
     }
 
     // Pass Type
-    document.getElementById("passType").textContent =
-        "🟢 " + data.pass_type.toUpperCase() + " PASS";
+   let icon = "🟢";
+
+if (data.pass_type === "Premium") {
+
+    icon = "💎";
+
+}
+
+if (data.pass_type === "VIP") {
+
+    icon = "👑";
+
+}
+
+document.getElementById("passType").textContent =
+    icon + " " + data.pass_type.toUpperCase() + " PASS";
 
     // Dashboard Top Pass (if exists)
     const topPass = document.getElementById("topPass");
