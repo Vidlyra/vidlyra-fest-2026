@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Pass | Vidlyra Fest 2026</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#081226;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+
+}
+
+.card{
+
+width:95%;
+max-width:700px;
+
+background:rgba(19,40,77,.95);
+
+border-radius:20px;
+
+padding:40px;
+
+text-align:center;
+
+box-shadow:0 0 30px rgba(0,229,255,.2);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+h1{
+
+font-size:42px;
+color:#00E5FF;
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+color:#ccc;
+margin-bottom:30px;
+
+}
+
+.price{
+
+font-size:60px;
+font-weight:bold;
+color:#FFD54A;
+
+margin-bottom:10px;
+
+}
+
+.small{
+
+color:#aaa;
+margin-bottom:35px;
+
+}
+
+.features{
+
+text-align:left;
+margin:30px auto;
+max-width:500px;
+
+}
+
+.features p{
+
+padding:10px 0;
+font-size:18px;
+
+}
+
+.button{
+
+margin-top:25px;
+
+padding:15px 35px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+background:#00E5FF;
+
+color:#081226;
+
+transition:.3s;
+
+}
+
+.button:hover{
+
+transform:scale(1.05);
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:25px;
+
+color:#00E5FF;
+
+text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>💎 PREMIUM PASS</h1>
+
+<p class="subtitle">
+
+Unlock exclusive Vidlyra features.
+
+</p>
+
+<div class="price">
+
+₹199
+
+</div>
+
+<p class="small">
+
+One Time Upgrade
+
+</p>
+
+<div class="features">
+
+<p>✅ Premium Frequency Avatars</p>
+
+<p>✅ Premium Profile Frame</p>
+
+<p>✅ Premium Badge</p>
+
+<p>✅ Early Event Access</p>
+
+<p>✅ Exclusive Community Role</p>
+
+<p>✅ Future Premium Rewards</p>
+
+</div>
+
+<button
+class="button"
+onclick="buyPremiumPass()">
+
+Upgrade to Premium
+
+</button>
+
+<br>
+
+<a
+class="back"
+href="dashboard.html">
+
+← Back to Dashboard
+
+</a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/premium.js"></script>
+
+</body>
+</html>
