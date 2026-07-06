@@ -22,35 +22,31 @@ async function loadUser() {
 // Load Selected Frequency Avatar
 // ===============================
 
-const { data: profile } = await window.sb
-.from("profiles")
-.select("selected_avatar")
-.eq("user_id", user.id)
-.maybeSingle();
+const { data: profile, error: profileError } = await window.sb
+    .from("profiles")
+    .select("selected_avatar")
+    .eq("user_id", user.id)
+    .maybeSingle();
 
-if(profile && profile.selected_avatar){
+console.log("Profile:", profile);
+console.log("Profile Error:", profileError);
 
-    const { data: avatar } = await window.sb
-    .from("avatars")
-    .select("image_url, avatar_name")
-    .eq("id", profile.selected_avatar)
-    .single();
+if (profile && profile.selected_avatar) {
 
-    if(avatar){
+    const { data: avatar, error: avatarError } = await window.sb
+        .from("avatars")
+        .select("*")
+        .eq("id", profile.selected_avatar)
+        .single();
 
-        document.getElementById("userAvatar").src =
-        avatar.image_url;
+    console.log("Avatar:", avatar);
+    console.log("Avatar Error:", avatarError);
 
-        document.getElementById("userAvatar").alt =
-        avatar.avatar_name;
+    if (avatar) {
+
+        document.getElementById("userAvatar").src = avatar.image_url;
 
     }
-
-}
-if (profile && profile.avatar_url) {
-
-    document.getElementById("userAvatar").src =
-        profile.avatar_url;
 
 }
 
