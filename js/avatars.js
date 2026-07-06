@@ -104,31 +104,56 @@ async function selectAvatar(id) {
         data: { user }
     } = await window.sb.auth.getUser();
 
-    console.log("User ID:", user.id);
-    console.log("Selected Avatar:", id);
-
-    const { error } = await window.sb
-        .from("profiles")
-        .update({
-            selected_avatar: id
-        })
-        .eq("user_id", user.id);
-
-    if (error) {
-
-        console.error(error);
-
-        alert(error.message);
-
+    if (!user) {
+        alert("Login required");
         return;
+    }
+
+    console.log("User:", user.id);
+    console.log("Avatar:", id);
+
+    const { data: profile } = await window.sb
+        .from("profiles")
+        .select("user_id")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+    if (!profile) {
+
+        const { error } = await window.sb
+            .from("profiles")
+            .insert({
+                user_id: user.id,
+                selected_avatar: id,
+                full_name: user.user_metadata.full_name,
+                email: user.email
+            });
+
+        if (error) {
+            console.error(error);
+            alert(error.message);
+            return;
+        }
+
+    } else {
+
+        const { error } = await window.sb
+            .from("profiles")
+            .update({
+                selected_avatar: id
+            })
+            .eq("user_id", user.id);
+
+        if (error) {
+            console.error(error);
+            alert(error.message);
+            return;
+        }
 
     }
 
-    console.log("Avatar Saved!");
+    alert("✅ Avatar Selected");
 
-    alert("✅ Frequency Avatar Selected!");
-
-    window.location.href = "dashboard.html";
-
+    location.href = "dashboard.html";
 }
 loadAvatars();
