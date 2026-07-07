@@ -51,3 +51,22 @@ if (!profile || !profile.selected_avatar) {
     }
 
 }
+const {
+data:{user}
+}=await window.sb.auth.getUser();
+
+const {data:profile}=await window.sb
+.from("profiles")
+.select("selected_avatar")
+.eq("user_id",user.id)
+.maybeSingle();
+
+if(!profile||!profile.selected_avatar){
+
+window.location.href="avatars.html";
+
+}else{
+
+window.location.href="dashboard.html";
+
+}
