@@ -1,6 +1,7 @@
 // ===============================
 // Load Logged-in User
 // ===============================
+
 async function loadUser() {
 
     const {
@@ -12,18 +13,6 @@ async function loadUser() {
         window.location.href = "login.html";
         return;
     }
-    const { data: profile } = await window.sb
-    .from("profiles")
-    .select("selected_avatar")
-    .eq("user_id", user.id)
-    .maybeSingle();
-
-if (!profile || !profile.selected_avatar) {
-
-    window.location.href = "avatars.html";
-    return;
-
-}
 
     // Name
     document.getElementById("userName").textContent =
@@ -41,10 +30,7 @@ if (!profile || !profile.selected_avatar) {
             user.user_metadata.full_name || "Participant";
     }
 
-    // =====================================
-    // Load Selected Frequency Avatar
-    // =====================================
-
+    // Load Profile
     const { data: profile, error: profileError } = await window.sb
         .from("profiles")
         .select("selected_avatar")
@@ -56,28 +42,30 @@ if (!profile || !profile.selected_avatar) {
         return;
     }
 
-    if (profile && profile.selected_avatar) {
+    // Redirect if avatar not selected
+    if (!profile || !profile.selected_avatar) {
+        window.location.href = "avatars.html";
+        return;
+    }
 
-        const { data: avatar, error: avatarError } = await window.sb
-            .from("avatars")
-            .select("image_url, avatar_name")
-            .eq("id", profile.selected_avatar)
-            .single();
+    // Load Avatar
+    const { data: avatar, error: avatarError } = await window.sb
+        .from("avatars")
+        .select("image_url, avatar_name")
+        .eq("id", profile.selected_avatar)
+        .maybeSingle();
 
-        if (avatarError) {
-            console.error(avatarError);
-            return;
-        }
+    if (avatarError) {
+        console.error(avatarError);
+    }
 
-        if (avatar) {
+    if (avatar) {
 
-            document.getElementById("userAvatar").src =
-                avatar.image_url;
+        document.getElementById("userAvatar").src =
+            avatar.image_url;
 
-            document.getElementById("userAvatar").alt =
-                avatar.avatar_name;
-
-        }
+        document.getElementById("userAvatar").alt =
+            avatar.avatar_name;
 
     }
 
@@ -86,6 +74,7 @@ if (!profile || !profile.selected_avatar) {
 // ===============================
 // Load User Pass
 // ===============================
+
 async function loadPass() {
 
     const {
@@ -103,26 +92,27 @@ async function loadPass() {
     if (error || !data) {
 
         document.getElementById("passType").textContent =
-            "No Pass Purchased";
+            "No Pass";
+
+        document.getElementById("topPass").textContent =
+            "None";
 
         return;
-
     }
 
     let icon = "🟢";
 
-    if (data.pass_type === "Premium") icon = "💎";
+    if (data.pass_type === "Premium")
+        icon = "💎";
 
-    if (data.pass_type === "VIP") icon = "👑";
+    if (data.pass_type === "VIP")
+        icon = "👑";
 
     document.getElementById("passType").textContent =
-        icon + " " + data.pass_type.toUpperCase() + " PASS";
+        icon + " " + data.pass_type;
 
-    const topPass = document.getElementById("topPass");
-
-    if (topPass) {
-        topPass.textContent = data.pass_type.toUpperCase();
-    }
+    document.getElementById("topPass").textContent =
+        data.pass_type;
 
     document.getElementById("ticketId").textContent =
         data.ticket_id;
@@ -149,7 +139,9 @@ async function loadPass() {
 
     if (buyButton) {
 
-        buyButton.style.display = "none";
+        if (data.pass_type === "Basic") {
+            buyButton.style.display = "none";
+        }
 
     }
 
@@ -158,6 +150,7 @@ async function loadPass() {
 // ===============================
 // Logout
 // ===============================
+
 async function logout() {
 
     await window.sb.auth.signOut();
@@ -169,7 +162,8 @@ async function logout() {
 // ===============================
 // Start Dashboard
 // ===============================
-window.onload = async function () {
+
+window.onload = async () => {
 
     await loadUser();
 
