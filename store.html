@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Membership Store | Vidlyra Fest 2026</title>
+
+<link rel="stylesheet" href="css/store.css">
+
+</head>
+
+<body>
+
+<h1>Membership Store</h1>
+
+<p class="subtitle">
+Upgrade your Vidlyra Membership
+</p>
+
+<div class="plans">
+
+    <div class="card">
+
+        <h2>🟢 Basic Pass</h2>
+
+        <h3>₹99</h3>
+
+        <ul>
+
+            <li>✔ Basic Avatar Access</li>
+            <li>✔ Event Registration</li>
+            <li>✔ Digital Ticket</li>
+
+        </ul>
+
+        <button onclick="buyBasicPass()">
+
+            Buy Basic
+
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>💎 Premium Pass</h2>
+
+        <h3>₹299</h3>
+
+        <ul>
+
+            <li>✔ Premium Avatars</li>
+            <li>✔ Premium Badge</li>
+            <li>✔ Premium Events</li>
+
+        </ul>
+
+        <button onclick="upgradePremium()">
+
+            Upgrade Premium
+
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>👑 VIP Pass</h2>
+
+        <h3>₹999</h3>
+
+        <ul>
+
+            <li>✔ VIP Avatars</li>
+            <li>✔ Founder Badge</li>
+            <li>✔ Priority Entry</li>
+            <li>✔ VIP Lounge</li>
+
+        </ul>
+
+        <button onclick="upgradeVIP()">
+
+            Become VIP
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/store.js"></script>
+
+</body>
+
+</html>
