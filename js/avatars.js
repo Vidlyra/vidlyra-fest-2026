@@ -28,12 +28,14 @@ async function loadAvatars() {
     const userPass = pass ? pass.pass_type : "None";
 
     // Load Avatars
-    const { data: avatars, error } = await window.sb
-        const { data: avatars, error } = await window.sb
+   // Load Avatars
+const { data: avatars, error } = await window.sb
     .from("avatars")
     .select("*")
     .order("id");
 
+console.log("Avatars:", avatars);
+console.log("Error:", error);
 console.log("Avatars:", avatars);
 console.log("Error:", error);
     if (error) {
