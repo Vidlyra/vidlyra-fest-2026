@@ -2565,3 +2565,36 @@ font-weight:bold;
 color:#FFD54A;
 
 }
+.auth-box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
+.login-btn{
+    width:180px;
+    text-align:center;
+    text-decoration:none;
+    background:#00E5FF;
+    color:#081226;
+    padding:12px 20px;
+    border-radius:50px;
+    font-weight:700;
+}
+
+.signup-text{
+    color:#aaa;
+    font-size:14px;
+    margin:0;
+}
+
+.signup-link{
+    color:#00E5FF;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.signup-link:hover{
+    text-decoration:underline;
+}
