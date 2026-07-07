@@ -24,15 +24,19 @@ async function signUp() {
 
     });
 
-    if (error) {
+    if(error){
 
-        document.getElementById("message").innerHTML =
-            error.message;
+alert(error.message);
 
-        return;
+}else{
 
-    }
+alert("✅ Account created.\nVerify your email then login.");
 
+window.location.href="login.html";
+
+}
+
+}
     // Save profile
     if (data.user) {
 
