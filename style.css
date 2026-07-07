@@ -2598,3 +2598,29 @@ color:#FFD54A;
 .signup-link:hover{
     text-decoration:underline;
 }
+/* ===========================
+Login Page Links
+=========================== */
+
+.auth-links{
+    margin-top:18px;
+    text-align:center;
+    font-size:14px;
+    color:#bfc9d8;
+}
+
+.auth-links a{
+    color:#00bfff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.auth-links a:hover{
+    color:#ffffff;
+    text-decoration:underline;
+}
+
+.auth-links p{
+    margin:8px 0;
+}
