@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Participants</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>VIDLYRA</h2>
+
+<a href="admin-dashboard.html">🏠 Dashboard</a>
+
+<a href="participants.html">👥 Participants</a>
+
+<a href="passes.html">🎫 Pass Manager</a>
+
+<a href="avatars-admin.html">🎭 Avatar Manager</a>
+
+<a href="events-admin.html">🏆 Events</a>
+
+</div>
+
+<div class="content">
+
+<h1>Participants</h1>
+
+<input
+type="text"
+id="search"
+placeholder="Search by name or email..."
+onkeyup="searchUsers()"
+style="width:100%;padding:15px;margin:20px 0;border-radius:10px;border:none;">
+
+<table id="userTable">
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Pass</th>
+
+<th>Ticket</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/participants.js"></script>
+
+</body>
+
+</html>
