@@ -158,7 +158,7 @@ async function selectAvatar(id) {
 
     alert("✅ Avatar Selected");
 
-    location.href = "dashboard.html";
+    window.location.href="dashboard.html";
 }
 
 loadAvatars();
