@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vidlyra Admin Dashboard</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>VIDLYRA</h2>
+
+<a href="admin-dashboard.html">🏠 Dashboard</a>
+
+<a href="participants.html">👥 Participants</a>
+
+<a href="passes.html">🎫 Pass Manager</a>
+
+<a href="avatars-admin.html">🎭 Avatar Manager</a>
+
+<a href="events-admin.html">🏆 Events</a>
+
+<a href="podcast-admin.html">🎙 Podcast</a>
+
+<a href="announcement-admin.html">📢 Announcements</a>
+
+<a href="settings-admin.html">⚙ Settings</a>
+
+<button onclick="logout()">
+
+Logout
+
+</button>
+
+</div>
+
+<div class="content">
+
+<h1>Admin Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h2 id="users">0</h2>
+
+<p>Participants</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="basic">0</h2>
+
+<p>Basic Pass</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="premium">0</h2>
+
+<p>Premium Pass</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="vip">0</h2>
+
+<p>VIP Pass</p>
+
+</div>
+
+</div>
+
+<h2 style="margin-top:40px;">Quick Actions</h2>
+
+<div class="quick">
+
+<a href="participants.html">👥 Manage Participants</a>
+
+<a href="passes.html">🎫 Manage Passes</a>
+
+<a href="avatars-admin.html">🎭 Manage Avatars</a>
+
+<a href="events-admin.html">🏆 Manage Events</a>
+
+<a href="announcement-admin.html">📢 Announcements</a>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/admin-dashboard.js"></script>
+
+</body>
+
+</html>
