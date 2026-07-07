@@ -162,11 +162,51 @@ async function logout() {
 // ===============================
 // Start Dashboard
 // ===============================
+async function loadAnnouncements(){
 
+const {data}=await window.sb
+
+.from("announcements")
+
+.select("*")
+
+.eq("active",true)
+
+.order("id",{ascending:false})
+
+.limit(5);
+
+const box=document.getElementById("announcementBox");
+
+if(!box) return;
+
+box.innerHTML="";
+
+data.forEach(a=>{
+
+box.innerHTML+=`
+
+<p>
+
+<b>${a.title}</b><br>
+
+${a.message}
+
+</p>
+
+<hr>
+
+`;
+
+});
+
+}
 window.onload = async () => {
 
     await loadUser();
 
     await loadPass();
+
+    await loadAnnouncements();
 
 };
