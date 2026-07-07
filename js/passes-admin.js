@@ -4,7 +4,9 @@ async function loadPasses() {
         .from("passes")
         .select(`
             id,
+            user_id,
             pass_type,
+            ticket_id,
             status,
             profiles (
                 full_name,
@@ -18,67 +20,122 @@ async function loadPasses() {
     }
 
     const table = document.getElementById("passTable");
+
     table.innerHTML = "";
 
     data.forEach(pass => {
 
         table.innerHTML += `
 
-        <tr>
+<tr>
 
-            <td>${pass.profiles?.full_name || "-"}</td>
+<td>${pass.profiles?.full_name || "-"}</td>
 
-            <td>${pass.profiles?.email || "-"}</td>
+<td>${pass.profiles?.email || "-"}</td>
 
-            <td>${pass.pass_type}</td>
+<td>${pass.ticket_id}</td>
 
-            <td>${pass.status}</td>
+<td>${pass.pass_type}</td>
 
-            <td>
+<td>${pass.status}</td>
 
-                <select onchange="updatePass(${pass.id}, this.value)">
+<td>
 
-                    <option value="">Choose</option>
+<select onchange="updatePass(${pass.id},this.value)">
 
-                    <option value="Basic">Basic</option>
+<option value="">Upgrade</option>
 
-                    <option value="Premium">Premium</option>
+<option value="Basic">Basic</option>
 
-                    <option value="VIP">VIP</option>
+<option value="Premium">Premium</option>
 
-                </select>
+<option value="VIP">VIP</option>
 
-            </td>
+</select>
 
-        </tr>
+</td>
 
-        `;
+<td>
+
+<button onclick="toggleStatus(${pass.id},'${pass.status}')">
+
+${pass.status=="ACTIVE"?"Suspend":"Activate"}
+
+</button>
+
+</td>
+
+</tr>
+
+`;
 
     });
 
 }
 
-async function updatePass(id, passType) {
+async function updatePass(id,type){
 
-    if (!passType) return;
+if(type=="") return;
 
-    const { error } = await window.sb
-        .from("passes")
-        .update({
-            pass_type: passType
-        })
-        .eq("id", id);
+const {error}=await window.sb
 
-    if (error) {
+.from("passes")
 
-        alert(error.message);
-        return;
+.update({
 
-    }
+pass_type:type
 
-    alert("✅ Pass Updated");
+})
 
-    loadPasses();
+.eq("id",id);
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+loadPasses();
+
+}
+
+async function toggleStatus(id,status){
+
+const newStatus=
+
+status=="ACTIVE"
+
+?
+
+"SUSPENDED"
+
+:
+
+"ACTIVE";
+
+const {error}=await window.sb
+
+.from("passes")
+
+.update({
+
+status:newStatus
+
+})
+
+.eq("id",id);
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+loadPasses();
 
 }
 
