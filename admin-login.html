@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Vidlyra Admin Login</title>
+
+<link rel="stylesheet" href="css/admin-login.css">
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>VIDLYRA ADMIN</h1>
+
+<p>Administrator Access</p>
+
+<input
+type="email"
+id="email"
+placeholder="Admin Email">
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+<button onclick="adminLogin()">
+
+Login
+
+</button>
+
+<p id="message"></p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/admin-login.js"></script>
+
+</body>
+
+</html>
