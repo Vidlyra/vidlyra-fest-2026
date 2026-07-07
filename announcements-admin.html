@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Announcement Manager</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>VIDLYRA</h2>
+
+<a href="admin-dashboard.html">🏠 Dashboard</a>
+<a href="participants.html">👥 Participants</a>
+<a href="passes.html">🎫 Pass Manager</a>
+<a href="avatars-admin.html">🎭 Avatar Manager</a>
+<a href="events-admin.html">🏆 Event Manager</a>
+<a href="announcements-admin.html">📢 Announcements</a>
+
+</div>
+
+<div class="content">
+
+<h1>📢 Announcement Manager</h1>
+
+<a href="add-announcement.html" class="button">
+➕ Add Announcement
+</a>
+
+<br><br>
+
+<div id="announcementList">
+
+Loading...
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/announcements-admin.js"></script>
+
+</body>
+
+</html>
