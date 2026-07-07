@@ -2624,3 +2624,21 @@ Login Page Links
 .auth-links p{
     margin:8px 0;
 }
+.auth-links{
+    margin-top:18px;
+    text-align:center;
+    font-size:14px;
+    color:#bfc9d8;
+}
+
+.auth-links a{
+    color:#00bfff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.auth-links a:hover{
+    color:#fff;
+    text-decoration:underline;
+}
