@@ -12,6 +12,18 @@ async function loadUser() {
         window.location.href = "login.html";
         return;
     }
+    const { data: profile } = await window.sb
+    .from("profiles")
+    .select("selected_avatar")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+if (!profile || !profile.selected_avatar) {
+
+    window.location.href = "avatars.html";
+    return;
+
+}
 
     // Name
     document.getElementById("userName").textContent =
