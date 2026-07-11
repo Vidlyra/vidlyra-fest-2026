@@ -1,65 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sign Up | Vidlyra Fest 2026</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#081226;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+background:#081226;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
 }
 
 .container{
-    width:350px;
-    padding:30px;
-    border-radius:15px;
-    background:#13284d;
+width:380px;
+background:#13284d;
+padding:35px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,229,255,.2);
 }
 
 h2{
-    text-align:center;
+text-align:center;
+margin-bottom:25px;
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:8px;
-    box-sizing:border-box;
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+outline:none;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    background:#00bfff;
-    border:none;
-    border-radius:8px;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#00bfff;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
 }
 
 button:hover{
-    background:#0099dd;
+background:#0099dd;
+}
+
+.auth-links{
+margin-top:20px;
+text-align:center;
+}
+
+.auth-links a{
+color:#00E5FF;
+text-decoration:none;
 }
 
 #message{
-    margin-top:15px;
-    text-align:center;
+margin-top:15px;
+text-align:center;
 }
+
 </style>
 
 </head>
+
 <body>
+
+<div class="container">
 
 <h2>Create Vidlyra Account</h2>
 
@@ -89,26 +115,19 @@ Create Account
 
 <div class="auth-links">
 
-    <p>
-        Already have an account?
-        <a href="login.html">
-            Login
-        </a>
-    </p>
+<p>
+
+Already have an account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+</p>
 
 </div>
-
-<p id="message"></p>
-
-<h2>Vidlyra Fest 2026</h2>
-
-<input type="text" id="name" placeholder="Full Name">
-
-<input type="email" id="email" placeholder="Email">
-
-<input type="password" id="password" placeholder="Password">
-
-<button onclick="signUp()">Create Account</button>
 
 <p id="message"></p>
 
