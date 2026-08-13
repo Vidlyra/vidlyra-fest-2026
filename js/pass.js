@@ -1,52 +1,51 @@
 // ===============================
 // Buy Basic Pass
 // ===============================
-
 async function buyBasicPass() {
-
     const {
-        data: { user },
-        error: userError
+        data: { user }
     } = await window.sb.auth.getUser();
 
-    if (userError || !user) {
-        alert("Please login first.");
+    if (!user) {
+        window.location.href = "login.html";
         return;
     }
 
-    // Check if user already has a pass
-    const { data: existingPass } = await window.sb
-        .from("passes")
-        .select("*")
-        .eq("user_id", user.id)
-        .maybeSingle();
-
-    if (existingPass) {
-        alert("You already own a pass.");
-        return;
+    const buyButton = document.getElementById("buyButton");
+    if (buyButton) {
+        buyButton.disabled = true;
+        buyButton.textContent = "Processing…";
     }
 
-    // Generate Ticket ID
-    const ticketId = "VF2026-" + Date.now();
+    // Generate a simple readable ticket id, e.g. VF26-482913
+    const ticketId = "VF26-" + Math.floor(100000 + Math.random() * 900000);
 
     const { error } = await window.sb
         .from("passes")
-        .insert([
+        .upsert(
             {
                 user_id: user.id,
                 pass_type: "Basic",
                 ticket_id: ticketId,
-                status: "ACTIVE"
-            }
-        ]);
+                status: "Active"
+            },
+            { onConflict: "user_id" }
+        );
 
     if (error) {
-        alert(error.message);
+        console.error(error);
+        if (buyButton) {
+            buyButton.disabled = false;
+            buyButton.textContent = "Buy Basic Pass";
+        }
+        alert("Couldn't complete your pass purchase. Please try again.");
         return;
     }
 
-    alert("🎉 Basic Pass Purchased!");
-
-    location.reload();
-
+    // Refresh the ticket card with the new pass details
+    if (typeof loadPass === "function") {
+        await loadPass();
+    } else {
+        window.location.reload();
+    }
 }
