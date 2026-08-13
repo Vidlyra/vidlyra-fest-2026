@@ -4,107 +4,300 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login | Vidlyra Fest 2026</title>
-<link rel="stylesheet" href="css/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body{
+:root{
+    --void:#140A0C;
+    --plum:#341128;
+    --plum-light:#4A1B3B;
+    --ember:#FF6B1A;
+    --ember-light:#FF9152;
+    --gold:#FFC145;
+    --parchment:#FFF3E0;
+    --ash:#B4A392;
+    --success:#3FB68A;
+    --error:#FF5A5A;
+    --font-display:'Fredoka One', cursive;
+    --font-body:'Nunito', sans-serif;
+    --font-mono:'Space Mono', monospace;
+}
+
+*{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#081226;
+    padding:0;
+    box-sizing:border-box;
+    font-family:var(--font-body);
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+    background:radial-gradient(ellipse at top, var(--plum-light) 0%, var(--plum) 35%, var(--void) 75%);
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    color:white;
+    min-height:100vh;
+    color:var(--parchment);
+    padding:20px;
+    position:relative;
+    overflow-x:hidden;
+}
+
+#embers{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
 }
 
 .container{
-    width:350px;
-    background:#13284d;
-    padding:30px;
-    border-radius:15px;
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:380px;
+    background:rgba(20,10,12,0.6);
+    border:1px solid rgba(255,193,69,0.15);
+    backdrop-filter:blur(8px);
+    padding:38px 34px;
+    border-radius:20px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+    opacity:0;
+    transform:translateY(18px);
+    animation:riseIn 0.7s ease forwards;
+}
+
+@keyframes riseIn{
+    to{opacity:1; transform:translateY(0);}
+}
+
+.brand{
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--ember-light);
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.brand::before{
+    content:"";
+    width:8px;height:8px;
+    background:var(--ember);
+    border-radius:50%;
+    box-shadow:0 0 10px 3px rgba(255,107,26,0.7);
 }
 
 h2{
+    font-family:var(--font-display);
     text-align:center;
+    font-size:26px;
+    margin-bottom:26px;
+    color:var(--parchment);
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:16px;
 }
 
 input{
     width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:8px;
-    box-sizing:border-box;
+    padding:13px 14px;
+    border:1.5px solid rgba(255,243,224,0.18);
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    background:rgba(255,243,224,0.05);
+    color:var(--parchment);
+    transition:border-color 0.2s ease, background 0.2s ease;
+}
+
+input::placeholder{
+    color:rgba(255,243,224,0.35);
+}
+
+input:focus{
+    border-color:var(--ember);
+    background:rgba(255,243,224,0.08);
+}
+
+input:focus-visible{
+    outline:2px solid var(--ember-light);
+    outline-offset:2px;
 }
 
 button{
     width:100%;
-    padding:12px;
+    padding:14px;
     border:none;
-    border-radius:8px;
-    background:#00bfff;
-    color:white;
+    border-radius:10px;
+    background:linear-gradient(135deg, var(--ember), #E0501A);
+    color:var(--void);
+    font-family:var(--font-display);
     font-size:16px;
+    letter-spacing:0.3px;
     cursor:pointer;
+    box-shadow:0 10px 26px -8px rgba(255,107,26,0.55);
+    transition:transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
+    margin-top:6px;
 }
 
 button:hover{
-    background:#0099dd;
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px -6px rgba(255,107,26,0.7);
+}
+
+button:active{transform:translateY(0);}
+
+button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+}
+
+button:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.links{
+    text-align:center;
+    margin-top:16px;
+    font-size:14px;
+    color:var(--ash);
+}
+
+.links a{
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.links a:hover{
+    text-decoration:underline;
 }
 
 #message{
-    margin-top:15px;
+    margin-top:16px;
     text-align:center;
+    font-size:14px;
+    min-height:20px;
+    font-weight:600;
+}
+
+.success{color:var(--success);}
+.error{color:var(--error);}
+
+@media(max-width:500px){
+    .container{padding:28px 24px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+        animation-duration:0.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.01ms !important;
+        scroll-behavior:auto !important;
+    }
 }
 </style>
-
 </head>
-
 <body>
 
+<canvas id="embers"></canvas>
+
 <div class="container">
+<div class="brand">Vidlyra Fest 2026</div>
+<h2>Welcome Back</h2>
 
-<h2>Vidlyra Fest 2026</h2>
-
+<div class="input-group">
 <input
 type="email"
 id="email"
-placeholder="Email">
-
+placeholder="Email"
+autocomplete="email">
+</div>
+<div class="input-group">
 <input
 type="password"
 id="password"
-placeholder="Password">
+placeholder="Password"
+autocomplete="current-password">
+</div>
 
-<button onclick="login()">
+<button id="loginBtn" onclick="login()">
 Login
 </button>
 
-<!-- Forgot Password -->
-<p style="text-align:center; margin-top:15px;">
-    <a href="forgot-password.html"
-       style="color:#00bfff; text-decoration:none;">
-        Forgot Password?
-    </a>
+<p class="links">
+    <a href="forgot-password.html">Forgot Password?</a>
 </p>
-
-<!-- Sign Up -->
-<p style="text-align:center;">
+<p class="links">
     Don't have an account?
-    <a href="signup.html"
-       style="color:#00bfff; font-weight:bold; text-decoration:none;">
-        Sign Up
-    </a>
+    <a href="signup.html">Sign Up</a>
 </p>
 
 <p id="message"></p>
-<p id="message"></p>
-
 </div>
 
+<script>
+// ---------- Ember particle background ----------
+(function(){
+    const canvas = document.getElementById('embers');
+    const ctx = canvas.getContext('2d');
+    let w, h, particles;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize(){
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function makeParticles(n){
+        return Array.from({length:n}, () => ({
+            x: Math.random()*w,
+            y: h + Math.random()*h,
+            r: 1 + Math.random()*2.5,
+            speed: 0.3 + Math.random()*0.9,
+            drift: (Math.random()-0.5)*0.4,
+            opacity: 0.2 + Math.random()*0.6,
+            hue: Math.random() > 0.5 ? '255,107,26' : '255,193,69'
+        }));
+    }
+
+    particles = makeParticles(reduceMotion ? 0 : 45);
+
+    function tick(){
+        ctx.clearRect(0,0,w,h);
+        particles.forEach(p => {
+            p.y -= p.speed;
+            p.x += p.drift;
+            if (p.y < -10){
+                p.y = h + 10;
+                p.x = Math.random()*w;
+            }
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+            ctx.fillStyle = `rgba(${p.hue}, ${p.opacity})`;
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = `rgba(${p.hue}, 0.8)`;
+            ctx.fill();
+        });
+        if (!reduceMotion) requestAnimationFrame(tick);
+    }
+    tick();
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>
 <script src="js/login.js"></script>
-
 </body>
 </html>
