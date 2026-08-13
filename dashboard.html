@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -10,31 +9,40 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/theme.css">
-<link rel="stylesheet" href="css/responsive.css">
 <style>
 
+:root{
+    --void:#140A0C;
+    --plum:#341128;
+    --plum-light:#4A1B3B;
+    --ember:#FF6B1A;
+    --ember-light:#FF9152;
+    --gold:#FFC145;
+    --parchment:#FFF3E0;
+    --ash:#B4A392;
+    --success:#3FB68A;
+    --error:#FF5A5A;
+    --font-display:'Fredoka One', cursive;
+    --font-body:'Nunito', sans-serif;
+    --font-mono:'Space Mono', monospace;
+}
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:var(--font-body);
 }
 
 body{
-
-background:
-linear-gradient(rgba(4,12,28,.94),rgba(4,12,28,.94)),
-radial-gradient(circle at top,#00E5FF22,transparent 40%);
-
-color:#fff;
-
-min-height:100vh;
-
-overflow-x:hidden;
-
+    background:
+        radial-gradient(circle at top, rgba(255,107,26,0.10), transparent 45%),
+        radial-gradient(ellipse at top, var(--plum-light) 0%, var(--plum) 35%, var(--void) 80%);
+    color:var(--parchment);
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
 /*==========================
@@ -42,65 +50,58 @@ HEADER
 ===========================*/
 
 header{
-
-width:100%;
-
-padding:20px 40px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-background:#081226;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-position:sticky;
-
-top:0;
-
-z-index:100;
-
+    width:100%;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(20,10,12,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,193,69,0.15);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
+    font-family:var(--font-display);
+    font-size:24px;
+    letter-spacing:1px;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-font-size:30px;
-
-font-weight:700;
-
-letter-spacing:2px;
-
-color:#00E5FF;
-
+.logo::before{
+    content:"";
+    width:10px;height:10px;
+    background:var(--ember);
+    border-radius:50%;
+    box-shadow:0 0 12px 3px rgba(255,107,26,0.7);
+    display:inline-block;
 }
 
 .logout{
-
-background:#ff3b5c;
-
-border:none;
-
-color:#fff;
-
-padding:12px 22px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-font-weight:600;
-
-transition:.3s;
-
+    background:var(--error);
+    border:none;
+    color:var(--void);
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:800;
+    font-family:var(--font-body);
+    transition:.2s;
 }
 
 .logout:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px -6px rgba(255,90,90,0.5);
+}
 
-transform:translateY(-2px);
-
+.logout:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
 }
 
 /*==========================
@@ -108,13 +109,9 @@ CONTAINER
 ===========================*/
 
 .dashboard{
-
-max-width:1350px;
-
-margin:auto;
-
-padding:40px 20px;
-
+    max-width:1350px;
+    margin:auto;
+    padding:40px 20px 80px;
 }
 
 /*==========================
@@ -122,13 +119,10 @@ WELCOME
 ===========================*/
 
 .welcome{
-
-font-size:40px;
-
-font-weight:700;
-
-margin-bottom:35px;
-
+    font-family:var(--font-display);
+    font-size:36px;
+    margin-bottom:35px;
+    color:var(--parchment);
 }
 
 /*==========================
@@ -136,57 +130,37 @@ STATS
 ===========================*/
 
 .stats{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:20px;
-
-margin-bottom:35px;
-
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:25px;
 }
 
 .stat-card{
-
-background:#13284d;
-
-padding:25px;
-
-border-radius:18px;
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.35s;
-
-text-align:center;
-
+    background:rgba(20,10,12,0.55);
+    border:1px solid rgba(255,193,69,0.15);
+    padding:25px;
+    border-radius:18px;
+    transition:.3s;
+    text-align:center;
 }
 
 .stat-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 0 25px rgba(0,229,255,.25);
-
+    transform:translateY(-6px);
+    box-shadow:0 14px 30px -10px rgba(255,107,26,0.35);
+    border-color:rgba(255,107,26,0.35);
 }
 
 .stat-card h3{
-
-color:#00E5FF;
-
-margin-bottom:12px;
-
+    color:var(--ember-light);
+    margin-bottom:12px;
+    font-size:15px;
 }
 
 .stat-card p{
-
-font-size:22px;
-
-font-weight:700;
-
-color:#FFD54A;
-
+    font-family:var(--font-display);
+    font-size:20px;
+    color:var(--gold);
 }
 
 /*==========================
@@ -194,13 +168,9 @@ GRID
 ===========================*/
 
 .grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-
-gap:25px;
-
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:25px;
 }
 
 /*==========================
@@ -208,31 +178,37 @@ CARD
 ===========================*/
 
 .card{
-
-background:#13284d;
-
-border-radius:20px;
-
-padding:25px;
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.3s;
-
+    background:rgba(20,10,12,0.55);
+    border:1px solid rgba(255,193,69,0.15);
+    border-radius:20px;
+    padding:25px;
+    backdrop-filter:blur(6px);
+    transition:.3s;
 }
 
 .card:hover{
-
-transform:translateY(-6px);
-
+    transform:translateY(-4px);
 }
 
 .card h2{
+    font-family:var(--font-display);
+    font-size:19px;
+    margin-bottom:20px;
+    color:var(--gold);
+}
 
-margin-bottom:20px;
+#announcementBox p{
+    line-height:1.6;
+}
 
-color:#00E5FF;
+#announcementBox b{
+    color:var(--ember-light);
+}
 
+#announcementBox hr{
+    border:none;
+    border-top:1px dashed rgba(255,193,69,0.2);
+    margin:12px 0;
 }
 
 /*==========================
@@ -240,618 +216,337 @@ DIGITAL PASS
 ===========================*/
 
 .ticket-card{
-
-position:relative;
-
-overflow:hidden;
-
-background:linear-gradient(135deg,#102446,#081226,#16396c);
-
-border:2px solid #00E5FF;
-
-box-shadow:0 0 35px rgba(0,229,255,.35);
-
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--plum-light), var(--void), #2A1020);
+    border:2px solid var(--ember);
+    box-shadow:0 0 35px rgba(255,107,26,0.25);
 }
 
 .ticket-card::before{
-
-content:"";
-
-position:absolute;
-
-width:250%;
-
-height:250%;
-
-left:-80%;
-
-top:-80%;
-
-background:linear-gradient(
-
-45deg,
-
-transparent,
-
-rgba(255,255,255,.12),
-
-transparent
-
-);
-
-animation:rotateGlow 8s linear infinite;
-
+    content:"";
+    position:absolute;
+    width:250%;
+    height:250%;
+    left:-80%;
+    top:-80%;
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,193,69,0.10),
+        transparent
+    );
+    animation:rotateGlow 8s linear infinite;
 }
 
 @keyframes rotateGlow{
-
-100%{
-
-transform:rotate(360deg);
-
-}
-
+    100%{ transform:rotate(360deg); }
 }
 
 .ticket-header{
-
-position:relative;
-
-z-index:2;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:25px;
-
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
 }
 
 .ticket-header h2{
-
-margin:0;
-
-font-size:26px;
-
+    margin:0;
+    font-size:20px;
 }
 
 .badge{
-
-padding:10px 18px;
-
-border-radius:50px;
-
-background:#00E676;
-
-color:#081226;
-
-font-weight:700;
-
+    padding:9px 18px;
+    border-radius:50px;
+    background:var(--success);
+    color:var(--void);
+    font-weight:800;
+    font-size:13px;
+    font-family:var(--font-body);
 }
 
 .ticket-body{
-
-position:relative;
-
-z-index:2;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-gap:30px;
-
-flex-wrap:wrap;
-
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
 .ticket-left{
-
-flex:1;
-
-min-width:220px;
-
+    flex:1;
+    min-width:220px;
 }
 
 .ticket-left h3{
-
-font-size:28px;
-
-margin-bottom:20px;
-
-color:#FFD54A;
-
+    font-family:var(--font-display);
+    font-size:24px;
+    margin-bottom:18px;
+    color:var(--gold);
 }
 
 .ticket-left p{
+    margin:12px 0;
+    line-height:1.7;
+    font-size:14px;
+    color:var(--ash);
+}
 
-margin:12px 0;
+.ticket-left p strong{
+    color:var(--parchment);
+}
 
-line-height:1.7;
-
+.ticket-left span{
+    font-family:var(--font-mono);
 }
 
 .ticket-right{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 #qrcode{
-
-background:#fff;
-
-padding:14px;
-
-border-radius:15px;
-
+    background:var(--parchment);
+    padding:14px;
+    border-radius:15px;
 }
 
 .button{
-
-margin-top:18px;
-
-display:inline-block;
-
-padding:12px 22px;
-
-background:#00E5FF;
-
-color:#081226;
-
-text-decoration:none;
-
-font-weight:700;
-
-border:none;
-
-border-radius:10px;
-
-cursor:pointer;
-
-transition:.3s;
-
+    margin-top:14px;
+    display:inline-block;
+    padding:12px 22px;
+    background:linear-gradient(135deg, var(--ember), #E0501A);
+    color:var(--void);
+    text-decoration:none;
+    font-weight:800;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+    font-family:var(--font-body);
+    font-size:14px;
+    box-shadow:0 8px 20px -8px rgba(255,107,26,0.5);
 }
 
 .button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 24px -6px rgba(255,107,26,0.65);
+}
 
-transform:translateY(-3px);
-
+.button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
 }
 
 #myEvents p{
-
-margin:10px 0;
-
+    margin:10px 0;
+    color:var(--ash);
 }
 
 @media(max-width:768px){
-
-header{
-
-padding:18px;
-
+    header{ padding:16px 18px; }
+    .logo{ font-size:19px; }
+    .welcome{ font-size:27px; }
+    .ticket-body{ flex-direction:column; text-align:center; }
 }
 
-.logo{
-
-font-size:24px;
-
-}
-
-.welcome{
-
-font-size:30px;
-
-}
-
-.ticket-body{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+        animation-duration:0.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.01ms !important;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-
-VIDLYRA FEST 2026
-
-</div>
-
-<div style="display:flex;gap:15px;align-items:center;">
-
-<a href="store.html" class="button">
-
-💎 Store
-
-</a>
-
-<button class="logout" onclick="logout()">
-
-Logout
-
-</button>
-
-</div>
-
+    <div class="logo">VIDLYRA FEST 2026</div>
+    <div style="display:flex;gap:15px;align-items:center;">
+        <a href="store.html" class="button">💎 Store</a>
+        <button class="logout" onclick="logout()">Logout</button>
+    </div>
 </header>
+
 <div class="dashboard">
-<!-- ==========================
-WELCOME
-========================== -->
 
-<h1 class="welcome">
-    Welcome 👋
-</h1>
+    <!-- ==========================
+    WELCOME
+    ========================== -->
+    <h1 class="welcome">Welcome 👋</h1>
 
-<!-- ==========================
-STATISTICS
-========================== -->
+    <!-- ==========================
+    STATISTICS
+    ========================== -->
+    <div class="stats">
 
-<div class="stats">
+        <div class="stat-card">
+            <h3>🎫 My Pass</h3>
+            <p id="topPass">Loading...</p>
+        </div>
 
-    <div class="stat-card">
+        <div class="stat-card">
+            <h3>🏆 My Events</h3>
+            <p id="eventCount">0</p>
+        </div>
 
-        <h3>🎫 My Pass</h3>
-
-        <p id="topPass">
-            Loading...
-        </p>
-
-    </div>
-
-    <div class="stat-card">
-
-        <h3>🏆 My Events</h3>
-
-        <p id="eventCount">
-            0
-        </p>
+        <div class="stat-card">
+            <h3>🎙 Podcast</h3>
+            <p>Listen Now</p>
+        </div>
 
     </div>
 
-    <div class="stat-card">
+    <!-- ==========================
+    ANNOUNCEMENTS
+    ========================== -->
+    <div class="card" style="margin-bottom:25px;">
+        <h2>📢 Latest Announcements</h2>
+        <div id="announcementBox">Loading...</div>
+    </div>
 
-        <h3>🎙 Podcast</h3>
+    <!-- ==========================
+    MAIN GRID
+    ========================== -->
+    <div class="grid">
 
-        <p>
-            listen now
-        </p>
+        <!-- ==========================
+        PROFILE CARD
+        ========================== -->
+        <div class="card">
+            <h2>👤 My Profile</h2>
+
+            <div style="text-align:center; margin-bottom:20px;">
+                <img
+                    id="userAvatar"
+                    src="https://placehold.co/120x120/140A0C/FFC145?text=Avatar"
+                    alt="Avatar"
+                    style="
+                        width:120px;
+                        height:120px;
+                        border-radius:50%;
+                        object-fit:cover;
+                        border:4px solid var(--ember);
+                        box-shadow:0 0 20px rgba(255,107,26,0.4);
+                    ">
+                <br><br>
+                <a href="avatars.html" class="button">✨ Change Frequency Avatar</a>
+            </div>
+
+            <a href="settings.html" class="button">⚙️ Account Settings</a><br><br>
+            <a href="profile.html" class="button">👤 View Full Profile</a><br><br>
+            <a href="store.html" class="button">💎 Membership Store</a>
+
+            <p style="margin-top:20px;">
+                <strong>Name</strong><br>
+                <span id="userName">Loading...</span>
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Email</strong><br>
+                <span id="userEmail">Loading...</span>
+            </p>
+        </div>
+
+        <!-- ==========================
+        DIGITAL TICKET
+        ========================== -->
+        <div class="card ticket-card">
+
+            <div class="ticket-header">
+                <h2>VIDLYRA FEST 2026</h2>
+                <span class="badge" id="passType">Loading...</span>
+            </div>
+
+            <div class="ticket-body">
+                <div class="ticket-left">
+                    <h3 id="userNameTicket">Participant</h3>
+
+                    <p><strong>Ticket ID</strong><br><span id="ticketId">Loading...</span></p>
+                    <p><strong>Status</strong><br><span id="passStatus">Loading...</span></p>
+                    <p><strong>Date</strong><br>07 July 2026</p>
+                    <p><strong>Venue</strong><br>Vidlyra Fest Arena</p>
+                </div>
+
+                <div class="ticket-right">
+                    <div id="qrcode"></div>
+                </div>
+            </div>
+
+            <button id="buyButton" class="button" onclick="buyBasicPass()">Buy Basic Pass</button>
+            <a href="ticket.html" class="button">🎫 Open Full Ticket</a>
+            <button
+                id="premiumButton"
+                class="button"
+                style="display:none;background:linear-gradient(135deg,#8A2BE2,#5E1E9E);margin-top:10px;"
+                onclick="window.location.href='premium.html'">
+                💎 Upgrade to Premium
+            </button>
+        </div>
+
+        <!-- ==========================
+        EVENTS
+        ========================== -->
+        <div class="card">
+            <h2>🏆 Events</h2>
+
+            <p><strong>Anime Quiz</strong></p>
+            <button class="button" onclick="joinEvent('Anime Quiz')">Join Event</button>
+            <br><br>
+
+            <p><strong>Fan Anime Stories</strong></p>
+            <button class="button" onclick="joinEvent('Fan Anime Stories')">Join Event</button>
+            <br><br>
+
+            <p><strong>Gaming Tournament</strong></p>
+            <button class="button" onclick="joinEvent('Gaming Tournament')">Join Event</button>
+            <br><br>
+
+            <p><strong>Art Contest</strong></p>
+            <button class="button" onclick="joinEvent('Art Contest')">Join Event</button>
+        </div>
+
+        <!-- ==========================
+        MY EVENTS
+        ========================== -->
+        <div class="card">
+            <h2>📋 My Events</h2>
+            <div id="myEvents">Loading...</div>
+        </div>
+
+        <!-- ==========================
+        PODCAST
+        ========================== -->
+        <div class="card">
+            <h2>🎙 Vidlyra Podcast</h2>
+            <p><strong>Hollow Frequency: Code Zero</strong></p>
+            <br>
+            <p>Episode 01</p>
+            <br>
+            <a href="#" class="button">🎧 Listen Now</a>
+        </div>
 
     </div>
-<div class="card">
-
-<h2>📢 Latest Announcements</h2>
-
-<div id="announcementBox">
-
-Loading...
-
-</div>
-
-</div>
-</div>
-
-<!-- ==========================
-MAIN GRID
-========================== -->
-
-<div class="grid">
-
-<!-- ==========================
-PROFILE CARD
-========================== -->
-
-<div class="card">
-
-<h2>
-👤 My Profile
-</h2>
-<a href="settings.html" class="button">
-⚙️ Account Settings
-</a><br><br>
-
-<a href="profile.html" class="button">
-👤 View Full Profile
-</a>
-    <br><br>
-
-<a href="store.html" class="button">
-💎 Membership Store
-</a>
-
-<br><br>
-
-<a href="profile.html" class="button">
-👤 View Profile
-</a>
-<div style="text-align:center; margin-bottom:20px;">
-
-<img
-id="userAvatar"
-src="https://placehold.co/120x120/081226/00E5FF?text=Avatar"
-alt="Avatar"
-style="
-width:120px;
-height:120px;
-border-radius:50%;
-object-fit:cover;
-border:4px solid #00E5FF;
-box-shadow:0 0 20px rgba(0,229,255,.5);
-">
-<br><br>
-
-<a
-href="avatars.html"
-class="button">
-
-✨ Change Frequency Avatar
-
-</a>
-</div>
-<p>
-
-<strong>Name</strong><br>
-
-<span id="userName">
-
-Loading...
-
-</span>
-
-</p>
-
-<br>
-
-<p>
-
-<strong>Email</strong><br>
-
-<span id="userEmail">
-
-Loading...
-
-</span>
-
-</p>
-
-</div>
-
-<!-- ==========================
-DIGITAL TICKET
-========================== -->
-
-<div class="card ticket-card">
-
-<div class="ticket-header">
-
-<h2>
-
-VIDLYRA FEST 2026
-
-</h2>
-
-<span
-class="badge"
-id="passType">
-
-Loading...
-
-</span>
-
-</div>
-
-<div class="ticket-body">
-
-<div class="ticket-left">
-
-<h3 id="userNameTicket">
-
-Participant
-
-</h3>
-
-<p>
-
-<strong>Ticket ID</strong><br>
-
-<span id="ticketId">
-
-Loading...
-
-</span>
-
-</p>
-
-<p>
-
-<strong>Status</strong><br>
-
-<span id="passStatus">
-
-Loading...
-
-</span>
-
-</p>
-
-<p>
-
-<strong>Date</strong><br>
-
-07 July 2026
-
-</p>
-
-<p>
-
-<strong>Venue</strong><br>
-
-Vidlyra Fest Arena
-
-</p>
-
-</div>
-
-<div class="ticket-right">
-
-<div id="qrcode"></div>
-
-</div>
-
-</div>
-
-<button
-
-id="buyButton"
-
-class="button"
-
-onclick="buyBasicPass()">
-
-Buy Basic Pass
-
-</button>
-    <a href="ticket.html" class="button">
-
-🎫 Open Full Ticket
-
-</a>
-<button
-id="premiumButton"
-class="button"
-style="display:none;background:#8A2BE2;color:white;margin-top:10px;"
-onclick="window.location.href='premium.html'">
-
-💎 Upgrade to Premium
-
-</button>
-</div>
-<!-- ==========================
-EVENTS
-========================== -->
-
-<div class="card">
-
-<h2>🏆 Events</h2>
-
-<p><strong>Anime Quiz</strong></p>
-
-<button class="button" onclick="joinEvent('Anime Quiz')">
-Join Event
-</button>
-
-<br><br>
-
-<p><strong>Fan Anime Stories</strong></p>
-
-<button class="button" onclick="joinEvent('Fan Anime Stories')">
-Join Event
-</button>
-
-<br><br>
-
-<p><strong>Gaming Tournament</strong></p>
-
-<button class="button" onclick="joinEvent('Gaming Tournament')">
-Join Event
-</button>
-
-<br><br>
-
-<p><strong>Art Contest</strong></p>
-
-<button class="button" onclick="joinEvent('Art Contest')">
-Join Event
-</button>
-
-</div>
-
-<!-- ==========================
-MY EVENTS
-========================== -->
-
-<div class="card">
-
-<h2>📋 My Events</h2>
-
-<div id="myEvents">
-
-Loading...
-
-</div>
-
-</div>
-
-<!-- ==========================
-PODCAST
-========================== -->
-
-<div class="card">
-
-<h2>🎙 Vidlyra Podcast</h2>
-
-<p>
-
-<strong>Hollow Frequency: Code Zero</strong>
-
-</p>
-
-<br>
-
-<p>
-
-Episode 01
-
-</p>
-
-<br>
-
-<a href="#" class="button">
-
-🎧 Listen Now
-
-</a>
-
-</div>
-
-</div>
-
 </div>
 
 <!-- ==========================
 SCRIPTS
 ========================== -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
 <script src="js/supabase.js"></script>
-
 <script src="js/dashboard.js"></script>
-
 <script src="js/pass.js"></script>
-
 <script src="js/events.js"></script>
 
 </body>
