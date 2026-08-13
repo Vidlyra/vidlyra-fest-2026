@@ -1,44 +1,39 @@
+// ===============================
+// Join an Event
+// ===============================
 async function joinEvent(eventName) {
-
     const {
         data: { user }
     } = await window.sb.auth.getUser();
 
     if (!user) {
-        alert("Please login first.");
-        return;
-    }
-
-    const { data: existing } = await window.sb
-        .from("event_registrations")
-        .select("id")
-        .eq("user_id", user.id)
-        .eq("event_name", eventName)
-        .maybeSingle();
-
-    if (existing) {
-        alert("You have already joined this event.");
+        window.location.href = "login.html";
         return;
     }
 
     const { error } = await window.sb
-        .from("event_registrations")
-        .insert([
-            {
-                user_id: user.id,
-                event_name: eventName
-            }
-        ]);
+        .from("event_signups")
+        .insert([{ user_id: user.id, event_name: eventName }]);
 
     if (error) {
-        alert(error.message);
-    } else {
-        alert("🎉 Successfully joined " + eventName + "!");
-loadMyEvents();
+        // Avoid duplicate signups piling up as scary errors in the console
+        if (error.code === "23505") {
+            alert(`You're already signed up for ${eventName}.`);
+        } else {
+            console.error(error);
+            alert("Couldn't join that event. Please try again.");
+        }
+        return;
     }
-}
-async function loadMyEvents() {
 
+    alert(`You're in! Joined ${eventName}.`);
+    await loadMyEvents();
+}
+
+// ===============================
+// Load "My Events" list + count
+// ===============================
+async function loadMyEvents() {
     const {
         data: { user }
     } = await window.sb.auth.getUser();
@@ -46,37 +41,31 @@ async function loadMyEvents() {
     if (!user) return;
 
     const { data, error } = await window.sb
-        .from("event_registrations")
-        .select("*")
+        .from("event_signups")
+        .select("event_name")
         .eq("user_id", user.id);
+
+    const box = document.getElementById("myEvents");
+    const count = document.getElementById("eventCount");
 
     if (error) {
         console.error(error);
+        if (box) box.innerHTML = "<p>Couldn't load your events.</p>";
         return;
     }
 
-    let html = "";
+    if (count) count.textContent = data.length;
+
+    if (!box) return;
 
     if (!data || data.length === 0) {
-
-        html = "No events joined yet.";
-
-    } else {
-
-        data.forEach(event => {
-
-            html += `
-                <p>✅ ${event.event_name}</p>
-            `;
-
-        });
-
-        html += `
-            <hr style="margin:15px 0;">
-            <strong>Total Joined : ${data.length}</strong>
-        `;
+        box.innerHTML = "<p>You haven't joined any events yet.</p>";
+        return;
     }
 
-    document.getElementById("myEvents").innerHTML = html;
+    box.innerHTML = data
+        .map(e => `<p>✅ ${e.event_name}</p>`)
+        .join("");
 }
+
 window.addEventListener("load", loadMyEvents);
