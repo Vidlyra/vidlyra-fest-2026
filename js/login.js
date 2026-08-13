@@ -1,41 +1,51 @@
+// ---------- Vidlyra Fest — Login handler ----------
+
 async function login() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  const btn = document.getElementById("loginBtn");
+  const message = document.getElementById("message");
 
-    const { data, error } = await window.sb.auth.signInWithPassword({
-        email: email,
-        password: password
+  message.textContent = "";
+  message.className = "";
+
+  if (!email || !password) {
+    showMessage("Please enter your email and password.", "error");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
     });
 
     if (error) {
-        document.getElementById("message").innerHTML = error.message;
-        return;
+      showMessage(error.message, "error");
+      setLoading(false);
+      return;
     }
 
-    document.getElementById("message").innerHTML =
-        "✅ Login Successful";
+    showMessage("Welcome back! Redirecting…", "success");
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1200);
+  } catch (err) {
+    showMessage("Something went wrong. Please try again.", "error");
+    console.error(err);
+    setLoading(false);
+  }
 
-    // Get logged in user
-    const {
-        data: { user }
-    } = await window.sb.auth.getUser();
+  function setLoading(isLoading) {
+    btn.disabled = isLoading;
+    btn.textContent = isLoading ? "Logging in…" : "Login";
+  }
 
-    // Check avatar selection
-    const { data: profile } = await window.sb
-        .from("profiles")
-        .select("selected_avatar")
-        .eq("user_id", user.id)
-        .maybeSingle();
-
-    setTimeout(function () {
-
-        if (!profile || !profile.selected_avatar) {
-            window.location.href = "avatars.html";
-        } else {
-            window.location.href = "dashboard.html";
-        }
-
-    }, 1000);
-
+  function showMessage(text, type) {
+    message.textContent = text;
+    message.className = type;
+  }
 }
